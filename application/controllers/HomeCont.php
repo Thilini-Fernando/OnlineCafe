@@ -16,6 +16,9 @@ class HomeCont extends CI_Controller {
 	public function regCust(){
 		$this->load->view('RegCustView');
 	}
+
+	// All users can login to the system through this...
+
 	public function logUser(){
 		$this->form_validation->set_rules('eml', 'email', 'required|valid_email');
 		$this->form_validation->set_rules('pwd', 'password', 'required');
@@ -23,6 +26,20 @@ class HomeCont extends CI_Controller {
 		if ($this->form_validation->run()==FALSE){
 			echo 'validation failed';
 			$this->load->view('Loginview');
+
+
+		/**
+		if validation result is true...
+			- first it checks login details are in Customers accounts
+			- if it true then creates session of customer and links with customer profile
+
+			-if it's not in customer then it checks login details in admin table
+			- if it true then creates session of admin and links with admin profile
+
+			else:
+				it returns error message..
+
+		**/
 
 		}else{
 			$this->load->model('CustModel');

@@ -7,7 +7,7 @@
         <div class="container col-md-8 col-lg-8">
           
           <div class="container">
-            <img class="d-block img-fluid w-100" src="<?php echo base_url("assets/img/mySystem.jpeg"); ?>" alt="">           
+            <img class="d-block img-fluid w-100" src="<?php echo base_url("assets/img_my/mySystem.jpeg"); ?>" alt="">           
           </div>
         </div>
         <!-- Welcome Message -->
@@ -23,7 +23,7 @@
           <strong>worth visitng</strong>
         </h2>
         <hr class="divider">
-        <img class="img-fluid float-left mr-4 d-none d-lg-block" src="<?php echo base_url("assets/img/intro-pic.jpg"); ?>" alt="">
+        <img class="img-fluid float-left mr-4 d-none d-lg-block" src="<?php echo base_url("assets/img_my/intro-pic.jpg"); ?>" alt="">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste provident debitis quos corporis saepe deserunt ad, officia, minima natus molestias assumenda nisi velit?</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit totam libero expedita magni est delectus pariatur aut, aperiam eveniet velit cum possimus, autem voluptas. Eum qui ut quasi voluptate blanditiis?</p>
