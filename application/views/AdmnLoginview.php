@@ -1,6 +1,8 @@
 <?php include 'HnF/header.php' ?>
 
-	<div class="container">
+	<br>
+
+	<div class="container" style="background-color: white;">
 		<br>
 		<center>
 			<h1><b>Admin Login Form</b></h1>
@@ -13,10 +15,12 @@
 
 		<hr>
 		<?php echo validation_errors(); ?>
+		
+
 
 		<?php echo form_open('HomeCont/logAdmin'); ?>
 
-			<div class="container" style="background-color: white;">
+			<div class="container">
 
 				<br>
 				<div class="container col-sm-6 col-sm-offset-3" style="background-color: lightgrey">
@@ -28,10 +32,10 @@
 					    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Master key" name="mstrk">
 					</div>
 
-					
 					<div align="right"> 
 						<button type="submit" class="btn btn-success"><b>Continue..</b></button>
 					</div>
+
 					<br> 
 
 				</div>
@@ -42,5 +46,7 @@
 		<?php echo form_close(); ?>
 		<br>
 	</div>
+
+	<br>
 
 <?php include 'HnF/footer.php' ?>
