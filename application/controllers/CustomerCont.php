@@ -1,9 +1,7 @@
 <?php 
 
 class CustomerCont extends CI_Controller{
-	public function viewProfile(){
-		$this->load->view('CustProfile');
-	}
+
 	public function logoutUser(){
 
 		unset(
@@ -47,4 +45,27 @@ class CustomerCont extends CI_Controller{
 			}
 		}
 	}
+    public function viewProfile(){
+        $this->load->view('Customer/UserProfile');
+    }
+	public function viewFoodItems()
+    {
+        $this->load->view("Customer/ViewFood");
+
+    }
+    public function orderDetails()
+    {
+        $this->load->view("Customer/OrderDetails");
+
+    }
+    public function orderNow()
+    {
+        $this->load->view("Customer/OrderNow");
+
+    }
+    public function orderLater()
+    {
+        $this->load->view("Customer/OrderLater");
+
+    }
 }

@@ -45,8 +45,7 @@ class HomeCont extends CI_Controller {
 			$this->load->model('CustModel');
 			$checkCustLog = $this->CustModel->logCust();
 
-			$this->load->model('AdminModel');
-			$checkAdmnLog_1 = $this->AdminModel->logAdmn1();
+
 
 			if ($checkCustLog) {
 				# code...
@@ -66,6 +65,9 @@ class HomeCont extends CI_Controller {
 				$this->session->set_userdata($cust_det);
 				redirect('CustomerCont/viewProfile');
 			}else{
+                $this->load->model('AdminModel');
+                $checkAdmnLog_1 = $this->AdminModel->logAdmn1();
+
 				if ($checkAdmnLog_1) {
 					# code...
 					$admn_det = array(
