@@ -29,14 +29,16 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit totam libero expedita magni est delectus pariatur aut, aperiam eveniet velit cum possimus, autem voluptas. Eum qui ut quasi voluptate blanditiis?</p>
       </div-->
 
-      <div class="bg-faded p-4 my-4">
+      <div class="container bg-faded p-4 my-4" align="center">
         <hr class="divider">
-        <h2 class="text-center text-lg text-uppercase my-0">Beautiful boxes to
-          <strong>showcase your content</strong>
+        <h2 class="text-center text-lg text-uppercase my-0">
+          <strong>We know what you need...</strong>
         </h2>
         <hr class="divider">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam pariatur perspiciatis reprehenderit illo et vitae iste provident debitis quos corporis saepe deserunt ad, officia, minima natus molestias assumenda nisi velit?</p>
+        <p>We are the ones who prepare delicious food that you are looking for...</p>
+        <p>If you need to taste just make a order we will deliver your choice to your door step..</p>
+        <p>Your desire is our choice...</p>
+        <hr>
       </div>
 
     </div>

@@ -1,6 +1,21 @@
 <?php
 
 class CustModel extends CI_Model{
+
+	public function regCustomer(){
+		$data = array(
+
+			'cust_fname' => $this->input->post('fnm',TRUE),
+			'cust_lname' => $this->input->post('lnm', TRUE),
+			'address' => $this->input->post('addr', TRUE),
+			'contact_no' => $this->input->post('cntct', TRUE),
+			'email' => $this->input->post('eml', TRUE),
+			'password' => sha1($this->input->post('pwd', TRUE))
+		);
+		
+		return $this->db->insert('customer',$data);
+	}
+
 	public function logCust(){
 		$email = $this->input->post('eml');
 		$password = sha1($this->input->post('pwd'));

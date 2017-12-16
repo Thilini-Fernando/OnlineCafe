@@ -24,7 +24,7 @@ class HomeCont extends CI_Controller {
 		$this->form_validation->set_rules('pwd', 'password', 'required');
 
 		if ($this->form_validation->run()==FALSE){
-			echo 'validation failed';
+			//echo 'validation failed';
 			$this->load->view('Loginview');
 
 
@@ -68,7 +68,20 @@ class HomeCont extends CI_Controller {
 			}else{
 				if ($checkAdmnLog_1) {
 					# code...
+					$admn_det = array(
+						'admin_id'=>$checkAdmnLog_1->admin_id,
+						'emp_id'=>$checkAdmnLog_1->emp_id,
+						'fname'=>$checkAdmnLog_1->admin_fname,
+						'lname'=>$checkAdmnLog_1->admin_lname,
+						'email'=>$checkAdmnLog_1->email,
+						'password'=>$checkAdmnLog_1->password,
+						'mstrkry'=>$checkAdmnLog_1->masterkey,						
+						'loggedIn' => TRUE 
+					);
+					$this->session->set_userdata($admn_det);
+					//redirect('CustomerCont/viewProfile');
 					$this->load->view('AdmnLoginview');
+
 
 				}else{
 					$this->load->view('Loginview');
@@ -85,6 +98,27 @@ class HomeCont extends CI_Controller {
 	}
 
 	public function logAdmin(){
-		echo 'Admin logged in..';
+		$this->form_validation->set_rules('mstrk', 'masterkey', 'required');
+		if ($this->form_validation->run()==FALSE){
+			echo 'validation failed';
+			$this->load->view('Loginview');
+		}
+		else{
+			$this->load->model('AdminModel');
+			$checkAdmnLog_2 = $this->AdminModel->logAdmn2();
+
+			if ($checkAdmnLog_2) {
+				
+				//$this->session->set_userdata($admn_det1);
+				redirect('AdminCont/viewProfile');
+			}else{
+				redirect('AdminCont/logoutUser');
+
+			}
+
+
+
+		}
+		//echo 'Admin logged in..';
 	}
 }

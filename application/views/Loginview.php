@@ -1,6 +1,8 @@
 <?php include 'HnF/header.php' ?> 
 
-	<div class="container" >
+	<br>
+
+	<div class="container" style="background-color: white;">
 
 		<br>
 
@@ -9,17 +11,17 @@
 
 		</center>
 
-		<!--//php if($this->session->flashdata('msg2')){
-			//echo "<h2>"."<SMALL>".$this->session->flashdata('msg2')."</SMALL>"."</h2>";
-		//}--> 
+		<?php if($this->session->flashdata('msg2')){
+			echo "<h2>"."<SMALL>".$this->session->flashdata('msg2')."</SMALL>"."</h2>";
+		}
+		?> 
 
 		<hr>
-		<?php echo validation_errors(); ?>
 		
 
 		<?php echo form_open('HomeCont/logUser'); ?>
 
-			<div class="container" style="background-color: white;">
+			<div class="container" >
 
 				<br>
 
@@ -51,5 +53,7 @@
 			<br>
 		<?php echo form_close(); ?>
 	</div>
+
+	<br>
 
 <?php include 'HnF/footer.php' ?>   

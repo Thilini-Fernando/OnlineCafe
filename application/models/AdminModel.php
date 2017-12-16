@@ -16,4 +16,14 @@ class AdminModel extends CI_Model{
 			return FALSE;
 		}
 	}
+	public function logAdmn2(){
+		$mstrkey = sha1($this->input->post('mstrk'));
+
+		if ($mstrkey==sha1('19941114')) {
+			return true;
+			
+		}else{
+			return FALSE;
+		}
+	}
 }
