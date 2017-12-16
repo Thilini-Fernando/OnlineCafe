@@ -2,7 +2,7 @@
 
 	<br>
 
-	<div class="container" style="background-color: white;">
+	<div class="container" style="color: white;">
 
 		<br>
 
@@ -25,7 +25,7 @@
 
 				<br>
 
-				<div class="container col-sm-6 col-sm-offset-3" style="background-color: lightgrey">
+				<div class="container col-sm-6 col-sm-offset-3" style="background-color: black; border-radius: 10px">
 
 					<br>
 
