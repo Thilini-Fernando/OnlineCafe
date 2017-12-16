@@ -1,6 +1,6 @@
 <?php include 'HnF/header.php' ?>   
 
-    <div class="container">
+    <div class="container" style="background-color: black">
 
       <div class="bg-faded p-4 my-4">
         <!-- Image Carousel -->

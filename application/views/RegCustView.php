@@ -2,7 +2,7 @@
 
  	<br>
 
-	<div class="container" style="background-color: white">
+	<div class="Regcontainer"  style="color: whitesmoke">
 		<br>
 		<h1><b>
 			<center>Customer Registration Form</center>
@@ -15,10 +15,10 @@
 		<hr>					
 		<?php echo form_open('CustomerCont/regCustomer'); ?>
 			
-			<div class="container col-sm-6 col-sm-offset-3" style="background-color: lightgrey">
+			<div class="container col-sm-5 col-sm-offset-3" style="background-color: black ; border-radius: 10px">
 				<br>
 				<div class="form-group">
-				    <label for="exampleInputEmail1"><b>First name</b></label>
+				    <label for="exampleInputEmail1"><b>First name/b></label>
 			    	<input type="text" class="form-control" id="exampleInputEmail1" placeholder="eg: Nimal" name ="fnm">
 				</div>
 				<div class="form-group">

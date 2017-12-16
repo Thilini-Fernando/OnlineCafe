@@ -6,6 +6,13 @@
         <?php echo ''.$this->session->userdata('fname').' '.$this->session->userdata('lname').' is here..' ?>
 
     </h3>
+
+    <?php if($this->session->flashdata('msg')){
+        echo "<h2>"."<center>"."<SMALL>".$this->session->flashdata('msg')."</center>"."</SMALL>"."</h2>";
+    } ?>
+
+
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
@@ -14,12 +21,15 @@
                         <h4 class="title">Your Profile Details</h4>
                     </div>
                     <div class="content">
-                        <form>
+
+                        <?php echo form_open('EditCustCont/editCust'); ?>
+
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" placeholder="Email"  value="<?php echo $this->session->userdata('email');?>">
+                                        <input type="email" class="form-control" placeholder="Email"  value="<?php echo $this->session->userdata('email');?>" name="email">
                                     </div>
                                 </div>
 
@@ -27,7 +37,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Contact Number</label>
-                                        <input type="text" class="form-control" placeholder="Contact No"  value="<?php echo $this->session->userdata('contact');?>">
+                                        <input type="text" class="form-control" placeholder="Contact No"  value="<?php echo $this->session->userdata('contact');?>" name="contact">
                                     </div>
                                 </div>
                             </div>
@@ -40,13 +50,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>First Name</label>
-                                        <input type="text" class="form-control" placeholder="Company"  value="<?php echo $this->session->userdata('fname');?>">
+                                        <input type="text" class="form-control" placeholder="Company"  value="<?php echo $this->session->userdata('fname');?>" name="fname">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Last Name</label>
-                                        <input type="text" class="form-control" placeholder="Last Name"  value="<?php echo $this->session->userdata('lname');?>">
+                                        <input type="text" class="form-control" placeholder="Last Name"  value="<?php echo $this->session->userdata('lname');?>" name="lname">
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +66,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <input type="text" class="form-control" placeholder="Home Address"  value="<?php echo $this->session->userdata('address');?>">
+                                        <input type="text" class="form-control" placeholder="Home Address"  value="<?php echo $this->session->userdata('address');?>" name="address">
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +74,8 @@
 
                             <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
                             <div class="clearfix"></div>
-                        </form>
+                        <?php echo form_close(); ?>
+
                     </div>
                 </div>
             </div>
