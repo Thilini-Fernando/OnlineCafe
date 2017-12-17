@@ -52,7 +52,7 @@ ServeMe
             </div>
 
             <ul class="nav">
-                <li class="active">
+                <li>
                     <a href="<?php echo base_url("index.php/CustomerCont/viewProfile"); ?>">
                         <i class="pe-7s-user"></i>
                         <p>My Profile</p>
@@ -66,7 +66,7 @@ ServeMe
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url("index.php/CustomerCont/orderDetails"); ?>"
+                    <a href="<?php echo base_url("index.php/CustomerCont/viewOrderDetails"); ?>"
                         <i class="pe-7s-news-paper"></i>
                         <p>Order Details</p>
                     </a>
