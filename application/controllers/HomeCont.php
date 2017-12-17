@@ -115,7 +115,7 @@ class HomeCont extends CI_Controller {
 			if ($checkAdmnLog_2) {
 				
 				//$this->session->set_userdata($admn_det1);
-				redirect('AdminCont/viewProfile');
+				redirect('AdminCont/viewUserDet');
 			}else{
 				redirect('AdminCont/logoutUser');
 
