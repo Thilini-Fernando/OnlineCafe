@@ -17,7 +17,7 @@
                             <th>Status</th>
                             <th>Price</th>
                             </thead>
-                            <tbody>
+                            <body>
 
                             <?php
                             if($o_val){
@@ -25,9 +25,9 @@
                                     ?>
 
                                     <tr>
+                                        <td><?php echo $ovalue->order_id?></td>
                                         <td><?php echo $ovalue->taken_date?></td>
                                         <td><?php echo $ovalue->due_date?></td>
-                                        <td><?php echo $ovalue->order_id?></td>
                                         <td><?php echo $ovalue->status?></td>
                                         <td><?php echo $ovalue->price?></td>
 
@@ -37,16 +37,12 @@
                             }
                             ?>
 
-
-
-
-                            </tbody>
+                            </body>
                         </table>
 
                     </div>
                 </div>
             </div>
-
 
             <div class="col-md-12">
                 <div class="card card-plain">
