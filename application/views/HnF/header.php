@@ -46,10 +46,10 @@
                 </li>
                 <!--li class="nav-item px-lg-4">
                   <a class="nav-link text-uppercase text-expanded" href="#">Blog</a>
-                </li>
-                <li class="nav-item px-lg-4">
-                  <a class="nav-link text-uppercase text-expanded" href="#">Contact</a>
                 </li-->
+                <li class="nav-item px-lg-4">
+                  <a class="nav-link text-uppercase text-expanded" href="#">Contact Us</a>
+                </li>
 
                 <li>
                     <a class="nav-link text-uppercase text-expanded" href="<?php echo base_url("index.php/HomeCont/viewLogin"); ?>">Login
