@@ -2,7 +2,7 @@
 
 	<br>
 
-	<div class="container" style="background-color: white;">
+	<div class="container" >
 		<br>
 		<center>
 			<h1><b>Admin Login Form</b></h1>
@@ -23,7 +23,7 @@
 			<div class="container">
 
 				<br>
-				<div class="container col-sm-6 col-sm-offset-3" style="background-color: lightgrey">
+				<div class="container col-sm-5 col-sm-offset-3" style="background-color: black">
 
 					<br>
 
