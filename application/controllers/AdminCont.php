@@ -114,4 +114,33 @@ class AdminCont extends CI_Controller{
 			}
 		}
 	}
+
+	public function editFoods(){
+		$this->form_validation->set_rules('fd_nm', 'Food name', 'required');
+		$this->form_validation->set_rules('qty', 'Quantity', 'required');
+		$this->form_validation->set_rules('itm_price', 'Item price', 'required');
+
+		if ($this->form_validation->run()==FALSE){
+			$this->session->set_flashdata('msg','Validated unsuccessfully.. Try again later..');
+			redirect('AdminCont/mngFood');
+			//$this->load->view('HomeView');
+
+		}else{
+			$this->load->model('AdminModel');
+			$isReg = $this->AdminModel->updateFood();
+			
+
+
+				if ($isReg==TRUE) {
+	                $this->session->set_flashdata('msg','Successfully updated');
+					redirect('AdminCont/mngFood');
+
+
+	            }else{
+					$this->session->set_flashdata('msg','Updation was unsuccesful.. Try again later..');
+					redirect('AdminCont/mngFood');
+				}
+			
+		}
+	}
 }

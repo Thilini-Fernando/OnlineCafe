@@ -106,7 +106,7 @@ class AdminModel extends CI_Model{
 		}
 	}
 
-	Public function addFood(){
+	public function addFood(){
 		$data1 = array(
 			
 
@@ -117,5 +117,22 @@ class AdminModel extends CI_Model{
 		);
 
 		return $this->db->insert('food_items',$data1);
+	}
+	public function updateFood(){
+		$food_nm =$_POST['fd_nm'];
+		$data2 = array(
+			
+
+			'food_name' => $food_nm,
+			'remaining_qty' => $this->input->post('qty', TRUE),
+			'unit_price' => $this->input->post('itm_price', TRUE),
+			
+		);
+
+		$this->db->where('food_name', $food_nm);
+
+		
+		return $this->db->update('food_items', $data2);
+
 	}
 }

@@ -51,12 +51,12 @@
             </div>
 
             <ul class="nav">
-                <li>
+                <!--li>
                     <a href="<?php echo base_url("index.php/AdminCont/viewProfile"); ?>">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>
-                </li>
+                </li-->
                 <li>
                     <a href="<?php echo base_url("index.php/AdminCont/viewUserDet"); ?>">
                         <i class="pe-7s-user"></i>

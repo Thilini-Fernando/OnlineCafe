@@ -1,6 +1,10 @@
 <?php include 'HnF/header.php' ?>
 
         <div class="content">
+
+            <?php if($this->session->flashdata('msg')){
+                echo "<h2>"."<center>"."<SMALL>".$this->session->flashdata('msg')."</center>"."</SMALL>"."</h2>";
+            } ?>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
@@ -94,7 +98,7 @@
                                         </div>
                                     </div>                       
                                     
-                                    <button type="submit" class="btn btn-success btn-fill pull-right">Add Food Item</button>
+                                    <button type="submit" class="btn btn-success btn-fill pull-left">Add Food Item</button>
                                     <div class="clearfix"></div>
                                 <?php echo form_close(); ?>
                             </div>
@@ -118,35 +122,50 @@
                             <div class="content">
                                 <?php echo form_open('AdminCont/editFoods'); ?>
                                     
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Food name</label>
-                                                <input type="text" name="fd_nm" class="form-control" placeholder="Butter cake (1kg)">
-                                            </div>
+                                    <div class="row col-lg-12 col-md-12">
+                                        
+                                        <div class="form-group">
+                                            <label>Food name</label>
+                                            
+                                            <!--select  class="form-control" style="height: 40px;" id="userIndex" name="fd_nm"-->
+                                            <select  class="form-control co" name="fd_nm">
+                                                <option>Select food item</option>
+
+                                                <?php foreach ($p_val as $pvalue) { 
+                                                ?>
+                                                    <option style="color: black;"><?php echo $pvalue->food_name ?></option>
+
+                                                <?php
+
+                                                } 
+
+                                                ?>
+
+                                            </select>
                                         </div>
+                                        
                                         
                                         
                                     </div>
 
                                     
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
+                                    <div class="row" align="center" style="text-align: left">
+                                        
+                                            <div class="form-group col-lg-6 col-md-6">
                                                 <label>Init Quantity</label>
                                                 <input type="text" name = "qty" class="form-control" placeholder="Last name">
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
+                                        
+                                        
+                                            <div class="form-group col-lg-6 col-md-6">
                                                 <label>Item price</label>
                                                 <input type="text" name="itm_price" class="form-control" placeholder="xxx.yy">
                                             </div>
-                                        </div>
+                                        
                                     </div>                       
                                     
-                                    <button type="submit" class="btn btn-success btn-fill pull-right">Add Food Item</button>
+                                    <button type="submit" class="btn btn-success btn-fill pull-left">Edit Food Item</button>
                                     <div class="clearfix"></div>
                                 <?php echo form_close(); ?>
                             </div>
