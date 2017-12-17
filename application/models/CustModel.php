@@ -68,11 +68,15 @@ class CustModel extends CI_Model{
 
     public function viewOrder()
     {
+//        $this->db->select('selected_food.required_qty,selected_food.item_price,selected_food.required_qty*selected_food.item_price as order_details.price');
+//        $this->db->from('selected_food');
+//        $this->db->join('order_details','order_details.order_id=selected_food.order_id');
+//        $this->db->set('order_details.price=selected_food.required_qty*selected_food.item_price');
+//        $this->db->update('order_details');
 
-
-        $this->db->select('orders.order_id,orders.taken_date,orders.due_date,order_details.status,order_details.price');
+        $this->db->select('orders.order_id,orders.taken_date,orders.due_date,order_details.status,order_details.(selected_food.required_qty*selected_food.item_price) as price');
         $this->db->from('orders');
-        $this->db->join('order_details','orders.order_id=order_details.order_id');
+        $this->db->join('order_details','selected_food','orders.order_id=order_details.order_id');
         $query3=$this->db->get();
 
         if($query3->num_rows()>0){
@@ -82,6 +86,23 @@ class CustModel extends CI_Model{
             return false;
         }
 
+    }
+
+    public function viewAvailableFood()
+    {
+        $query5 = $this->db->get('food_items');
+        if($query5->num_rows()>0){
+            return $query5->result();
+        }
+        else{
+            return false;
+        }
+
+    }
+
+    public function addNewOrder()
+    {
+        
     }
 
 

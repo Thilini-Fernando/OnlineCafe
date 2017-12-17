@@ -67,9 +67,19 @@ class CustomerCont extends CI_Controller{
     }
     public function orderNow()
     {
-        $this->load->view("Customer/OrderNow");
+        $this->load->model('CustModel');
+        $data4['n_val'] = $this->CustModel->viewAvailableFood();
+        $this->load->view("Customer/OrderNow",$data4);
 
     }
+
+    public function addOrder()
+    {
+        $this->load->model('CustModel');
+        $isReg = $this->CustModel->addNewOrder();
+    }
+
+
     public function orderLater()
     {
         $this->load->view("Customer/OrderLater");
