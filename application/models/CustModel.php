@@ -31,34 +31,29 @@ class CustModel extends CI_Model{
 			return FALSE;
 		}
 	}
-    function EditCustomer(){
-
-
-        $customer_id=$this->session->userdata('user_id');
-
-//        $this->db->where('student_id', $customer_id);
-//        $this->db->get('students');
-
-
-        $data = array(
-
-            'cust_fname' => $this->input->post('fname'),
-            'cust_lname' => $this->input->post('lname'),
-            'address' => $this->input->post('address'),
-            'contact_no' => $this->input->post('contact'),
-            'email' => $this->input->post('email')
-        );
-        $this->db->where('cust_id', $customer_id);
-        //$this->db->set($data);
-        $result = $this->db->update('customer', $data);
-
-
-        if ($result) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
+//
+//    function selectAll(){
+//        $query=$this->db->get('customer');
+//        $query_result=$query->result();
+//        return $query_result;
+//    }
+//
+//
+//    function select($data){
+//
+//        $this->db->select('*');
+//        $this->db->from('customer');
+//        $this->db->where('cust_id', $data);
+//        $query=$this->db->get();
+//        $result=$query->result();
+//        return $result;
+//
+//    }
+//
+//    function updateCustomer($customer_id,$data){
+//
+//        $this->db->where('cust_id', $customer_id);
+//        $this->db->update('customer',$data);
+//    }
+//
 }

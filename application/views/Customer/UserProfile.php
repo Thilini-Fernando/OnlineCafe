@@ -16,7 +16,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
-                <div class="card">
+                <form class="card">
                     <div class="header">
                         <h4 class="title">Your Profile Details</h4>
                     </div>
@@ -24,12 +24,26 @@
 
                         <?php echo form_open('EditCustCont/editCust'); ?>
 
+<!--                        --><?php //foreach ($customer as $customer1):?>
+<!--                        <li><a href ="--><?php //echo base_url()."index.php/EditCustCont/select/".$customer1->cust_id?><!--">--><?php //echo $customer1->email;?><!--</li>-->
+<!--                        --><?php //endforeach;?>
+
+                        </ol>
+                    </div>
+                    <div id="detail">
+                        <!-- Fetching All Details of Selected Student From Database And Showing In a Form -->
+
+                        <form method="post" action="<?php echo base_url() . "index.php/EditCustCont/editCust"?>
+                            <?php foreach ($customer as $customer1): ?>
+
+
+
 
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" placeholder="Email"  value="<?php echo $this->session->userdata('email');?>" name="email">
+                                        <input type="email" class="form-control" placeholder="Email"  value="<?php echo $customer1->email;?>" name="email">
                                     </div>
                                 </div>
 
@@ -37,7 +51,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Contact Number</label>
-                                        <input type="text" class="form-control" placeholder="Contact No"  value="<?php echo $this->session->userdata('contact');?>" name="contact">
+                                        <input type="text" class="form-control" placeholder="Contact No"  value="<?php echo $customer1->contact_no;?>" name="contact">
                                     </div>
                                 </div>
                             </div>
@@ -50,13 +64,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>First Name</label>
-                                        <input type="text" class="form-control" placeholder="Company"  value="<?php echo $this->session->userdata('fname');?>" name="fname">
+                                        <input type="text" class="form-control" placeholder="Company"  value="<?php echo $customer1->cust_fname;?>" name="fname">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Last Name</label>
-                                        <input type="text" class="form-control" placeholder="Last Name"  value="<?php echo $this->session->userdata('lname');?>" name="lname">
+                                        <input type="text" class="form-control" placeholder="Last Name"  value="<?php echo $customer1->cust_lname;?>" name="lname">
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +80,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Address</label>
-                                        <input type="text" class="form-control" placeholder="Home Address"  value="<?php echo $this->session->userdata('address');?>" name="address">
+                                        <input type="text" class="form-control" placeholder="Home Address"  value="<?php echo $customer1->address;?>" name="address">
                                     </div>
                                 </div>
                             </div>
@@ -74,6 +88,8 @@
 
                             <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
                             <div class="clearfix"></div>
+                    <?php endforeach; ?>
+                            </form>
                         <?php echo form_close(); ?>
 
                     </div>
@@ -114,39 +130,7 @@
 </div>
 
 
-<footer class="footer">
-    <div class="container-fluid">
-        <nav class="pull-left">
-            <ul>
-                <li>
-                    <a href="#">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Company
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Portfolio
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Blog
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <p class="copyright pull-right">
-            &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-        </p>
-    </div>
-</footer>
 
-</div>
-</div>
 
 <?php include 'HnF/footer.php'?>
+
