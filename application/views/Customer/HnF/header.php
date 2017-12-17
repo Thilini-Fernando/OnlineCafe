@@ -52,7 +52,7 @@ ServeMe
             </div>
 
             <ul class="nav">
-                <li>
+                <li class="active">
                     <a href="<?php echo base_url("index.php/CustomerCont/viewProfile"); ?>">
                         <i class="pe-7s-user"></i>
                         <p>My Profile</p>

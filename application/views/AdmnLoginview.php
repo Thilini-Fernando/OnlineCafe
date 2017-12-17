@@ -2,7 +2,7 @@
 
 	<br>
 
-	<div class="container" >
+	<div class="container" style="color: whitesmoke" >
 		<br>
 		<center>
 			<h1><b>Admin Login Form</b></h1>

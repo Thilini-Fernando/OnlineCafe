@@ -16,6 +16,9 @@ class HomeCont extends CI_Controller {
 	public function regCust(){
 		$this->load->view('RegCustView');
 	}
+    public function editCust(){
+        $this->load->view('Customer/UserProfile');
+    }
 
 	// All users can login to the system through this...
 
