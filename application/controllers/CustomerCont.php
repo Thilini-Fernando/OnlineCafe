@@ -46,7 +46,10 @@ class CustomerCont extends CI_Controller{
 		}
 	}
     public function viewProfile(){
-        $this->load->view('Customer/UserProfile');
+        $this->load->model('CustModel');
+        $data = $this->CustModel->viewProf();
+        $this->load->view('Customer/UserProfile', $data);
+
     }
 	public function viewFoodItems()
     {
@@ -66,6 +69,39 @@ class CustomerCont extends CI_Controller{
     public function orderLater()
     {
         $this->load->view("Customer/OrderLater");
+
+    }
+    public function editCust()
+    {
+        $this->form_validation->set_rules('fname', 'First name', 'required');
+        $this->form_validation->set_rules('lname', 'Last name', 'required');
+        $this->form_validation->set_rules('address', 'Address', 'required');
+        $this->form_validation->set_rules('contact', 'Contact no', 'required|max_length[10]|min_length[10]');
+        $this->form_validation->set_rules('email', 'email', 'required|valid_email');
+//        $this->form_validation->set_rules('password', 'Password', 'required|min_length[4]');
+//        $this->form_validation->set_rules('pwd_a', 'Password again', 'required|matches[pwd]');
+        if ($this->form_validation->run()==FALSE){
+            $this->session->set_flashdata('msg','Validation failed.. <br> Try again..');
+            redirect('HomeCont/editCust');
+
+        }else{
+            //echo 'validated succesfully';
+            $this->load->model('CustModel');
+            $isUpdate = $this->CustModel->editCustomer();
+
+            if ($isUpdate) {
+                $this->session->set_flashdata('msg','edit was succesfull');
+                $this->load->model('CustModel');
+                $data1=$this->CustModel->viewProf();
+                $this->load->view('Customer/UserProfile', $data1);
+
+
+
+            }else{
+                $this->session->set_flashdata('msg','edit was unsuccesful.. Try again later..');
+                redirect('HomeCont/editCust');
+            }
+        }
 
     }
 
