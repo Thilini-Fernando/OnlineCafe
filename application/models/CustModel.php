@@ -37,11 +37,7 @@ class CustModel extends CI_Model{
         $this->db->where('cust_id',$id);
         $query = $this->db->get('customer');
         return $query->result()[0];
-//        if($viewData->num_rows()>0) {
-//            return $viewData->result();
-//        } else{
-//            return false;
-//        }
+
     }
 
     public function editCustomer(){
@@ -58,29 +54,35 @@ class CustModel extends CI_Model{
         return $this->db->update('customer',$data);
     }
 
-//
-//    function selectAll(){
-//        $query=$this->db->get('customer');
-//        $query_result=$query->result();
-//        return $query_result;
-//    }
-//
-//
-//    function select($data){
-//
-//        $this->db->select('*');
-//        $this->db->from('customer');
-//        $this->db->where('cust_id', $data);
-//        $query=$this->db->get();
-//        $result=$query->result();
-//        return $result;
-//
-//    }
-//
-//    function updateCustomer($customer_id,$data){
-//
-//        $this->db->where('cust_id', $customer_id);
-//        $this->db->update('customer',$data);
-//    }
-//
+    public function viewFood()
+    {
+        $query2 = $this->db->get('food_items');
+        if($query2->num_rows()>0){
+            return $query2->result();
+        }
+        else{
+            return false;
+        }
+
+    }
+
+    public function viewOrder()
+    {
+
+
+        $this->db->select('orders.order_id,orders.taken_date,orders.due_date,order_details.status,order_details.price');
+        $this->db->from('orders');
+        $this->db->join('order_details','orders.order_id=order_details.order_id');
+        $query3=$this->db->get();
+
+        if($query3->num_rows()>0){
+            return $query3->result();
+        }
+        else{
+            return false;
+        }
+
+    }
+
+
 }
