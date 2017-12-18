@@ -108,7 +108,7 @@ Tip 1: you can change the color of the sidebar using: data-color="blue | azure |
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
-                        <li>
+                        <!--li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-dashboard"></i>
 								<p class="hidden-lg hidden-md">Dashboard</p>
@@ -136,11 +136,11 @@ Tip 1: you can change the color of the sidebar using: data-color="blue | azure |
                                 <i class="fa fa-search"></i>
 								<p class="hidden-lg hidden-md">Search</p>
                             </a>
-                        </li>
+                        </li-->
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
+                        <!--li>
                            <a href="">
                                <p>Account</p>
                             </a>
@@ -162,7 +162,7 @@ Dropdown
                                 <li class="divider"></li>
                                 <li><a href="#">Separated link</a></li>
                               </ul>
-                        </li>
+                        </li-->
                         <li>
                             <a href="<?php echo base_url('index.php/AdminCont/logoutUser'); ?>">
                                 <p>Log out</p>
