@@ -10,9 +10,18 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="header">
+                            <div class="row container-fluid">
+                                
+                            
+                            <div class="col-lg-8 header">
                                 <h4 class="title">Employee Details</h4>
-                                <p class="category">view and edit data</p>
+                                <p class="category">view and edit data <br> You can delete System admin and normal employees</p>
+                            </div>
+                            <div class="col-lg-4 header" align="center">
+                                <br>
+                                <a class = 'btn btn-info' href="<?php echo base_url('index.php/AdminCont/addEmployee'); ?>">Add Employee</a>
+                            </div>
+
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
@@ -32,6 +41,8 @@
                                                 # code...
                                                 foreach ($p_val as $pvalue) {
                                                     # code...
+
+                                                    
                                                 
                                                     ?>
                                                     <tr>
@@ -42,11 +53,31 @@
                                                         <td><?php echo $pvalue->email ?></td>
                                                         <td><?php echo $pvalue->dob ?></td>
                                                         <td>
-                                                            <button class="btn btn-info btn-hover">Edit</button>
-                                                            <button class="btn btn-warning btn-hover">Delete</button>
+
+                                                        <?php
+
+                                                        if ($pvalue->position == 'System Admin') {?>
+
+                                                            Not available for <br> editing or delete
+                                                        
+                                                        <?php 
+
+                                                        }else{ 
+
+                                                        ?>
+                                                            <a href="<?php echo base_url('index.php/AdminCont/editEmp/'.$pvalue->emp_id); ?>" class="btn btn-info">Edit</a>
+                                                            <a href="<?php echo base_url('index.php/AdminCont/deleteEmp/'.$pvalue->emp_id); ?>" class="btn btn-warning">Delete</a>
+
+                                                        <?php
+
+                                                        }
+
+                                                        ?>
                                                         </td>
                                                     </tr>
                                                     <?php 
+
+                                                    
                                                 }
                                             }
                                                     ?>

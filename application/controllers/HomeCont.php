@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class HomeCont extends CI_Controller {
 
-	
+
 	public function index()
 	{
 		$this->load->view('Homepage_view');
@@ -38,7 +38,7 @@ class HomeCont extends CI_Controller {
 
 		if ($this->form_validation->run()==FALSE){
 			//echo 'validation failed';
-			$this->load->view('Loginview');
+			$this->load->view('Customer/UserProfile');
 
 
 		/**
@@ -63,7 +63,7 @@ class HomeCont extends CI_Controller {
 			if ($checkCustLog) {
 				# code...
 				$cust_det = array(
-					
+
 
 					'user_id'=>$checkCustLog->cust_id,
 					'fname'=>$checkCustLog->cust_fname,
@@ -72,7 +72,7 @@ class HomeCont extends CI_Controller {
 					'contact'=>$checkCustLog->contact_no,
 					'email'=>$checkCustLog->email,
 					'loggedIn' => TRUE
-					
+
 				);
 
 				$this->session->set_userdata($cust_det);
@@ -90,8 +90,8 @@ class HomeCont extends CI_Controller {
 						'lname'=>$checkAdmnLog_1->admin_lname,
 						'email'=>$checkAdmnLog_1->email,
 						'password'=>$checkAdmnLog_1->password,
-						'mstrkry'=>$checkAdmnLog_1->masterkey,						
-						'loggedIn' => TRUE 
+						'mstrkry'=>$checkAdmnLog_1->masterkey,
+						'loggedIn' => TRUE
 					);
 					$this->session->set_userdata($admn_det);
 					//redirect('CustomerCont/viewProfile');
@@ -123,7 +123,7 @@ class HomeCont extends CI_Controller {
 			$checkAdmnLog_2 = $this->AdminModel->logAdmn2();
 
 			if ($checkAdmnLog_2) {
-				
+
 				//$this->session->set_userdata($admn_det1);
 				redirect('AdminCont/viewUserDet');
 			}else{
@@ -135,5 +135,10 @@ class HomeCont extends CI_Controller {
 
 		}
 		//echo 'Admin logged in..';
+	}
+
+	//AboutUsPage
+	public function AboutUs(){
+		$this->load->view('AboutUs');
 	}
 }

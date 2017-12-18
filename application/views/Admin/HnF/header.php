@@ -34,7 +34,7 @@
 <body>   
 
 <div class="wrapper">
-    <div class="sidebar" data-color="lightgrey" data-image="<?php echo base_url("assets/Admin_assets/img/sidebar-5.jpg"); ?>">
+    <div class="sidebar" data-color="lightgrey" data-image="<?php echo base_url("assets/Admin_assets/img/sidebar6.jpeg"); ?>">
 
     <!--
 
@@ -52,7 +52,7 @@
 
             <ul class="nav">
                 <!--li>
-                    <a href="<?php echo base_url("index.php/AdminCont/viewProfile"); ?>">
+                    <a href="<//?php echo base_url("index.php/AdminCont/viewProfile"); ?>">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>
@@ -67,6 +67,12 @@
                     <a href="<?php echo base_url("index.php/AdminCont/addAdmin"); ?>">
                         <i class="pe-7s-add-user"></i>
                         <p>Add Admin</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url("index.php/AdminCont/addEmployee"); ?>">
+                        <i class="pe-7s-add-user"></i>
+                        <p>Add Employee</p>
                     </a>
                 </li>
                 <li>
@@ -118,7 +124,7 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
-                        <li>
+                        <!--li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-dashboard"></i>
 								<p class="hidden-lg hidden-md">Dashboard</p>
@@ -146,11 +152,11 @@
                                 <i class="fa fa-search"></i>
 								<p class="hidden-lg hidden-md">Search</p>
                             </a>
-                        </li>
+                        </li-->
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
+                        <!--li>
                            <a href="">
                                <p>Account</p>
                             </a>
@@ -172,7 +178,7 @@
                                 <li class="divider"></li>
                                 <li><a href="#">Separated link</a></li>
                               </ul>
-                        </li>
+                        </li-->
                         <li>
                             <a href="<?php echo base_url('index.php/AdminCont/logoutUser'); ?>">
                                 <p>Log out</p>
