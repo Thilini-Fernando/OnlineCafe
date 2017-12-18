@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Your Previous Order Details</h4>
+                        <h4 class="title">Our Foods</h4>
                     </div>
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover table-striped">
@@ -16,12 +16,13 @@
                             <th>Due Date</th>
                             <th>Status</th>
                             <th>Price</th>
+
                             </thead>
-                            <body>
+                            <tbody>
 
                             <?php
                             if($o_val){
-                                foreach($o_val as $ovalue){
+                                foreach($o_val as $fvalue){
                                     ?>
 
                                     <tr>
@@ -31,26 +32,33 @@
                                         <td><?php echo $ovalue->status?></td>
                                         <td><?php echo $ovalue->price?></td>
 
+
+
                                     </tr>
                                     <?php
                                 }
                             }
                             ?>
 
-                            </body>
+
+
+
+                            </tbody>
                         </table>
 
                     </div>
                 </div>
             </div>
 
+
             <div class="col-md-12">
                 <div class="card card-plain">
-                    <div class="header">
-                    </div>
+
                     <div class="content table-responsive table-full-width">
 
-</div>
-</div>
 
-<?php include 'HnF/footer.php'?>
+
+                    </div>
+                </div>
+
+                <?php include 'HnF/footer.php'?>
