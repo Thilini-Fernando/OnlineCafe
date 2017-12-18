@@ -73,6 +73,14 @@ class CustomerCont extends CI_Controller{
         $this->load->view("Customer/OrderNow",$data3);
 
     }
+    public function orderLater()
+    {
+
+        $this->load->model('CustModel');
+        $data3['l_val'] = $this->CustModel->viewAllFoods();
+        $this->load->view("Customer/OrderLater",$data3);
+
+    }
 
 
 
@@ -80,9 +88,6 @@ class CustomerCont extends CI_Controller{
     {
         $qty = $_POST["qty1"];
         $fid = $_POST["fid"];
-
-
-
 
 
         $this->form_validation->set_rules('qty1', 'Quantity', 'required');
@@ -109,11 +114,37 @@ class CustomerCont extends CI_Controller{
     }
 
 
-    public function orderLater()
+    public function addOrderLater()
     {
-        $this->load->view("Customer/OrderLater");
+        $qty = $_POST["qty1"];
+        $fid = $_POST["fid"];
+        $date=$_POST["dueDate"];
 
+        $this->form_validation->set_rules('qty1', 'Quantity', 'required');
+        $this->form_validation->set_rules('dueDate', 'Due date', 'required');
+
+
+        if ($this->form_validation->run()==FALSE){
+            $this->session->set_flashdata('msg','Try again..');
+            redirect('CustomerCont/orderLater');
+
+        }else{
+            //echo 'validated succesfully';
+            $this->load->model('CustModel');
+            $isOrder = $this->CustModel->addLaterOrder($qty,$fid,$date);
+
+            if ($isOrder) {
+                $this->session->set_flashdata('msg','Successfully');
+                redirect('CustomerCont/orderLater');
+
+
+            }else{
+                $this->session->set_flashdata('msg',' Try again ..');
+                redirect('CustomerCont/orderLater');
+            }
+        }
     }
+
     public function editCust()
     {
         $this->form_validation->set_rules('fname', 'First name', 'required');

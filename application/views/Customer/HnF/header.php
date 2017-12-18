@@ -35,7 +35,7 @@
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="lightgrey" data-image="<?php echo base_url("assets/Admin_assets/img/sidebar-5.jpg"); ?>">
+    <div class="sidebar" data-color="#A9CCE3  " data-image="<?php echo base_url("assets/Admin_assets/img/sidebar-5.jpg"); ?>">
 
     <!--
 
@@ -108,6 +108,15 @@ Tip 1: you can change the color of the sidebar using: data-color="blue | azure |
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
+
+
+
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+
+
+
                         <!--li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-dashboard"></i>
@@ -163,6 +172,7 @@ Dropdown
                                 <li><a href="#">Separated link</a></li>
                               </ul>
                         </li-->
+
                         <li>
                             <a href="<?php echo base_url('index.php/AdminCont/logoutUser'); ?>">
                                 <p>Log out</p>
