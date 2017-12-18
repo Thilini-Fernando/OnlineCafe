@@ -65,29 +65,45 @@ class CustomerCont extends CI_Controller{
         $this->load->view("Customer/OrderDetails",$data3);
 
     }
+    public function orderNow()
+    {
+
+        $this->load->model('CustModel');
+        $data3['n_val'] = $this->CustModel->viewAvailableFoods();
+        $this->load->view("Customer/OrderNow",$data3);
+
+    }
+
 
 
     public function addOrder()
     {
-        $this->form_validation->set_rules('qty', 'Quantity', 'required');
+        $qty = $_POST["qty1"];
+        $fid = $_POST["fid"];
+
+
+
+
+
+        $this->form_validation->set_rules('qty1', 'Quantity', 'required');
 
         if ($this->form_validation->run()==FALSE){
             $this->session->set_flashdata('msg','Try again..');
-            redirect('HomeCont/order');
+            redirect('CustomerCont/orderNow');
 
         }else{
             //echo 'validated succesfully';
             $this->load->model('CustModel');
-            $isOrder = $this->CustModel->addNewOrder();
+            $isOrder = $this->CustModel->addNewOrder($qty,$fid);
 
             if ($isOrder) {
                 $this->session->set_flashdata('msg','Successfully');
-                redirect('HomeCont/orderNow');
+                redirect('CustomerCont/orderNow');
 
 
             }else{
                 $this->session->set_flashdata('msg',' Try again ..');
-                redirect('HomeCont/order');
+                redirect('CustomerCont/orderNow');
             }
         }
     }

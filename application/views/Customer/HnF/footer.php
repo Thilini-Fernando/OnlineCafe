@@ -1,13 +1,6 @@
 
 </body>
 
-
-message: "Successfully logged in as an Admin.."
-
-},{
-type: 'info',
-timer: 4000
-});
 <!--   Core JS Files   -->
 <script src="<?php echo base_url("assets/Admin_assets/js/jquery.3.2.1.min.js"); ?>" type="text/javascript"></script>
 <script src="<?php echo base_url("assets/Admin_assets/js/bootstrap.min.js"); ?>" type="text/javascript"></script>

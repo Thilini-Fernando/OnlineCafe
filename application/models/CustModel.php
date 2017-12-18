@@ -79,6 +79,21 @@ class CustModel extends CI_Model{
 
     }
 
+    public function viewAvailableFoods()
+    {
+        $query2 = $this->db->get('food_items');
+        if($query2->num_rows()>0){
+            return $query2->result();
+        }
+        else{
+            return false;
+        }
+
+    }
+
+
+
+
     public function viewAvailableFood()
     {
         $query5 = $this->db->get('food_items');
@@ -91,29 +106,37 @@ class CustModel extends CI_Model{
 
     }
 
-    public function addNewOrder()
+    public function addNewOrder($qty,$fid)
     {
-        $data = array(
 
-            'required_qty' => $this->input->post('qty',TRUE)
-        );
-
-        return $this->db->insert('selected_food',$data);
 
         $takenDate = date('Y-m-d ');
         $dueDate=date('Y-m-d ');
         $custID= $this->session->userdata('user_id');
 
         $data2 = array(
-
             'taken_date' => $takenDate,
             'due_date' => $dueDate,
             'cust_id' => $custID,
-
         );
 
-
         $this->db->insert('orders',$data2);
+
+        $myquery = "SELECT MAX(order_id) AS maxOrid FROM orders";
+        $res=$this->db->query($myquery)->row()->maxOrid;
+        $orderID = $res;
+        ////
+        $data1 = array(
+            'required_qty' =>$qty,
+            'order_id'  => $orderID,
+            'food_id' => $fid
+
+        );
+        return $this->db->insert('selected_food',$data1);
+
+
+
+
     }
 
 
