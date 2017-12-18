@@ -47,7 +47,6 @@
             <div class="col-md-12">
                 <div class="card card-plain">
                     <div class="header">
-                        <h4 class="title">Table on Plain Background</h4>
                     </div>
                     <div class="content table-responsive table-full-width">
 

@@ -8,17 +8,20 @@
                     <div class="header">
                         <h4 class="title">Our Foods</h4>
                     </div>
-                    <?php echo form_open('HomeCont/order'); ?>
 
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover table-striped">
+
                             <thead>
                             <th>Food ID</th>
                             <th>Food Items</th>
                             <th>Available Quantity</th>
+                            <th>Add Quantity</th>
                             <th>Add to Order</th>
 
+
                             </thead>
+
                             <tbody>
 
                             <?php
@@ -26,7 +29,10 @@
                             {
                                 foreach($n_val as $nvalue)
                                 {
+
+
                                     ?>
+
 
                                     <tr>
                                         <td><?php echo $nvalue->food_id?></td>
@@ -34,18 +40,40 @@
                                         <td><?php echo $nvalue->remaining_qty?></td>
                                         <?php
                                             if(($nvalue->remaining_qty)>0)
+
                                                     {
+
+
                                                 ?>
+
+
+
+
+                                                        <td>
+
+                                                            <input type="text" class="form-control" name="qty1"> </input>
+
+                                                        </td>
                                                 <td>
-                                                    <button type="submit" class="btn btn-info btn-hover" name="orderAdd">Add </button>
+
+                                                    <button type="submit" onclick="Submit(this);" class="btn btn-info btn-hover"  value="<?php echo $nvalue->food_id;?>" >
                                                 </td>
+
 
 
                                                 <?php
                                                     }
+                                            else{
+                                                ?>
+                                                <td>Unavailable</td>
+                                                <td>Unavailable</td>
+
+                                                <?php
+                                            }
 
                                                 ?>
                                     </tr>
+
 
                                  <?php
 
@@ -56,7 +84,6 @@
 
                             </tbody>
                         </table>
-                        <?php echo form_close(); ?>
 
 
                     </div>
@@ -75,3 +102,67 @@
                 </div>
 
                 <?php include 'HnF/footer.php'?>
+
+
+
+                <script>
+
+                    function Submit(object) {
+
+
+
+
+
+
+
+
+
+                        var id = object.value;
+                        var qty = object.parentElement.parentElement.childNodes[7].firstElementChild.value;
+
+                        console.log(id);
+                        console.log(qty);
+
+
+
+                        $.ajax({
+                            type:"POST",
+                            url:"http://localhost/OnlineCafe/index.php/CustomerCont/addOrder",
+                            data:{"qty1":qty,"fid":id},
+                            dataType:'JSON',
+                            success:function (json){
+
+                                object.parentElement.parentElement.childNodes[7].firstElementChild.value="";
+
+
+
+                            },
+                            error:function () {
+
+                                object.parentElement.parentElement.childNodes[7].firstElementChild.value="";
+
+                            }
+
+
+
+
+
+
+
+
+
+
+                        });
+
+
+
+                    }
+
+
+
+
+
+
+
+
+                </script>

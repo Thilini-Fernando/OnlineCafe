@@ -19,12 +19,12 @@ class HomeCont extends CI_Controller {
     public function editCust(){
         $this->load->view('Customer/UserProfile');
     }
-    public function order()
-    {
-
-        $this->load->view('AddNewOrder');
-
-    }
+//    public function order()
+//    {
+//
+//        $this->load->view('OrderNow');
+//
+//    }
     public function orderNow()
     {
         $this->load->view("Customer/OrderNow");
