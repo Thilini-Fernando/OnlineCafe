@@ -6,6 +6,34 @@ class AdminCont extends CI_Controller{
 		$this->load->model('AdminModel', 'amc');
 	}
 
+	public function deleteEmp($id){
+		$result = $this->amc->deleteEmp($id);
+		if ($result) {
+			$this->session->set_flashdata('msg','Successfully deleted..');
+			redirect('AdminCont/manageEmp');
+		}else{
+			$this->session->set_flashdata('msg','Deletion failed');
+			redirect('AdminCont/manageEmp');
+		}
+	}
+
+	public function editEmp($id){
+		$dta1['e_val']= $id;
+		$this->load->view('Admin/EditEmpView');
+	}
+
+	public function deleteCust($id){
+		
+		$result = $this->amc->deleteCust($id);
+		if ($result) {
+			$this->session->set_flashdata('msg','Successfully deleted..');
+			redirect('AdminCont/viewCustDet');
+		}else{
+			$this->session->set_flashdata('msg','Deletion failed');
+			redirect('AdminCont/viewCustDet');
+		}
+	}
+
 	public function viewProfileDet($ourAdmin){
 		$this->load->model('AdminModel');
         $data3['u_val'] = $this->AdminModel->getAdminDetail($ourAdmin);
@@ -78,6 +106,9 @@ class AdminCont extends CI_Controller{
 
 	public function addAdmin(){
 		$this->load->view('Admin/addAdmnView');
+	}
+	public function addEmployee(){
+		$this->load->view('Admin/addEmpView');
 	}
 
 	public function manageEmp(){

@@ -70,6 +70,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="<?php echo base_url("index.php/AdminCont/addEmployee"); ?>">
+                        <i class="pe-7s-add-user"></i>
+                        <p>Add Employee</p>
+                    </a>
+                </li>
+                <li>
                     <a href="<?php echo base_url("index.php/AdminCont/manageEmp"); ?>">
                         <i class="pe-7s-users"></i>
                         <p>Manage Employees</p>

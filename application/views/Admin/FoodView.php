@@ -153,7 +153,7 @@
                                     <div class="row" align="center" style="text-align: left">
                                         
                                             <div class="form-group col-lg-6 col-md-6">
-                                                <label>Init Quantity</label>
+                                                <label>Quantity</label>
                                                 <input type="text" name = "qty" class="form-control" placeholder="Last name">
                                             </div>
                                         
