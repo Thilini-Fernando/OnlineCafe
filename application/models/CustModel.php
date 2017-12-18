@@ -68,16 +68,7 @@ class CustModel extends CI_Model{
 
     public function viewOrder()
     {
-//        $this->db->select('selected_food.required_qty,selected_food.item_price,selected_food.required_qty*selected_food.item_price as order_details.price');
-//        $this->db->from('selected_food');
-//        $this->db->join('order_details','order_details.order_id=selected_food.order_id');
-//        $this->db->set('order_details.price=selected_food.required_qty*selected_food.item_price');
-//        $this->db->update('order_details');
-
-        $this->db->select('orders.order_id,orders.taken_date,orders.due_date,order_details.status,order_details.(selected_food.required_qty*selected_food.item_price) as price');
-        $this->db->from('orders');
-        $this->db->join('order_details','selected_food','orders.order_id=order_details.order_id');
-        $query3=$this->db->get();
+        $query3= $this->db->query("SELECT orders.order_id,orders.taken_date,orders.due_date,order_details.status,(selected_food.required_qty*selected_food.item_price) as price FROM orders JOIN order_details JOIN selected_food WHERE orders.order_id=order_details.order_id AND orders.order_id=selected_food.order_id");
 
         if($query3->num_rows()>0){
             return $query3->result();
@@ -102,7 +93,27 @@ class CustModel extends CI_Model{
 
     public function addNewOrder()
     {
-        
+        $data = array(
+
+            'required_qty' => $this->input->post('qty',TRUE)
+        );
+
+        return $this->db->insert('selected_food',$data);
+
+        $takenDate = date('Y-m-d ');
+        $dueDate=date('Y-m-d ');
+        $custID= $this->session->userdata('user_id');
+
+        $data2 = array(
+
+            'taken_date' => $takenDate,
+            'due_date' => $dueDate,
+            'cust_id' => $custID,
+
+        );
+
+
+        $this->db->insert('orders',$data2);
     }
 
 
