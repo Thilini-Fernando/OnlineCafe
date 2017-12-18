@@ -52,7 +52,7 @@
 
             <ul class="nav">
                 <!--li>
-                    <a href="<?php echo base_url("index.php/AdminCont/viewProfile"); ?>">
+                    <a href="<//?php echo base_url("index.php/AdminCont/viewProfile"); ?>">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>

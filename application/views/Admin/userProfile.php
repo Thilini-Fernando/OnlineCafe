@@ -1,6 +1,13 @@
 <?php include 'HnF/header.php' ?>
 
+
+
         <div class="content">
+
+            <?php if($this->session->flashdata('msg')){
+                echo "<h2>"."<center>"."<SMALL>".$this->session->flashdata('msg')."</center>"."</SMALL>"."</h2>";
+            } ?>
+
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-8">
@@ -11,6 +18,7 @@
                             </div>
                             <div class="content">
                                 <?php echo form_open('AdminCont/editUserDet'); ?>
+                                    
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -21,7 +29,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Emp Id</label>
-                                                <input type="text" disabled name="empl_id" class="form-control" value="<?php echo $this->session->userdata('emp_id'); ?>">
+                                                <input type="text" disabled name="empl_id" class="form-control" value="<?= $emp_id ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -29,13 +37,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>First name</label>
-                                                <input type="text" name="fnm" class="form-control" placeholder="First name" value="<?php echo $this->session->userdata('fname'); ?>">
+                                                <input type="text" name="fnm" class="form-control" placeholder="First name" value="<?= $emp_fname ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Last name</label>
-                                                <input type="text" name ="lnm" class="form-control" placeholder="Last rname" value="<?php echo $this->session->userdata('lname'); ?>">
+                                                <input type="text" name ="lnm" class="form-control" placeholder="Last rname" value="<?= $emp_lname ?>">
                                             </div>
                                         </div>
                                         
@@ -45,13 +53,14 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" name="eml" class="form-control" placeholder="Email" value="<?php echo $this->session->userdata('email'); ?>">
+                                                <input type="email" name="eml" class="form-control" placeholder="Email" value="<?= $email ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Contact no</label>
-                                                <input type="text" name="cntct" class="form-control" placeholder="Last Name" value=""<?php echo $this->session->userdata('contact_no'); ?>">
+                                                
+                                                <input type="text" name="cntct" class="form-control" placeholder="Contact" maxlength="10" minlength="10" value="<?= $contact_no ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -60,7 +69,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <input type="text" class="form-control" placeholder="Home Address" value="<?php echo $this->session->userdata('address'); ?>">
+                                                <input type="text" name='addr' class="form-control" placeholder="Home Address" value="<?= $address ?>">
                                             </div>
                                         </div>
                                     </div>

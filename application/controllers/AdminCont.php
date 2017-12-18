@@ -6,8 +6,12 @@ class AdminCont extends CI_Controller{
 		$this->load->model('AdminModel', 'amc');
 	}
 
-	public function viewProfile(){
-		$this->load->view('Admin/dashboard');
+	public function viewProfileDet($ourAdmin){
+		$this->load->model('AdminModel');
+        $data3['u_val'] = $this->AdminModel->getAdminDetail($ourAdmin);
+        return $data3;
+		
+		//$this->load->view('Admin/dashboard');
 	}
 	public function logoutUser(){
 		unset(
@@ -25,14 +29,51 @@ class AdminCont extends CI_Controller{
 
 		
 	}
+
 	public function viewUserDet(){
-		$this->load->view('Admin/userProfile');
+		$this->load->model('AdminModel');
+        //$data1 = $this->AdminModel->viewProf1();
+        $data2 = $this->AdminModel->viewProf2();
+        //$this->load->view('Customer/UserProfile', $data);
+		$this->load->view('Admin/userProfile',$data2);
 	}
 
 	public function editUserDet(){
-		$this->form_validation->set_rules('admn_id', 'Admin id', 'required');
-		$this->form_validation->set_rules('empl_id', 'Employee id', 'required');
+		//$this->form_validation->set_rules('admn_id', 'Admin id', 'required');
+		//$this->form_validation->set_rules('empl_id', 'Employee id', 'required');
+		$this->form_validation->set_rules('fnm', 'First name', 'required');
+		$this->form_validation->set_rules('lnm', 'Last name', 'required');
+		$this->form_validation->set_rules('eml', 'Admin id', 'required|valid_email');
+		$this->form_validation->set_rules('cntct', 'Contact', 'required');
+		$this->form_validation->set_rules('addr', 'Address', 'required');
 		
+		if ($this->form_validation->run()==FALSE){
+			//echo 'validation failed';
+			$this->session->set_flashdata('msg','Validation failed');
+			redirect('AdminCont/viewUserDet');
+
+		}else{
+			//echo 'validated succesfully';
+			$this->load->model('AdminModel');
+			$isEdited = $this->AdminModel->editAdmin1();
+			$isEdited2 = FALSE;
+
+			if($isEdited){
+				$isEdited2 = $this->AdminModel->editAdmin2();
+
+				if($isEdited2){
+					$this->session->set_flashdata('msg','Edited Succesfully..');
+					redirect('AdminCont/viewUserDet');
+				}else{
+					$this->session->set_flashdata('msg','Something went wrong.. </br> Try Again later..');
+					redirect('AdminCont/viewUserDet');
+				}
+				
+			}else{
+				$this->session->set_flashdata('msg','Something went wrong.. </br> Try Again later..');
+				redirect('AdminCont/viewUserDet');
+			}
+		}
 	}
 
 	public function addAdmin(){

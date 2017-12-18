@@ -1,6 +1,22 @@
 <?php
 
 class AdminModel extends CI_Model{
+	public function viewProf1()
+    {
+       	$id= $this->session->userdata('admin_id');
+        $this->db->where('admin_id',$id);
+        $query = $this->db->get('system_admin');
+        return $query->result()[0];
+
+    }
+    public function viewProf2()
+    {
+        $id= $this->session->userdata('emp_id');
+        $this->db->where('emp_id',$id);
+        $query = $this->db->get('employee');
+        return $query->result()[0];
+
+    }
 	public function logAdmn1(){
 		$email = $this->input->post('eml');
 		$password = sha1($this->input->post('pwd'));
@@ -134,5 +150,47 @@ class AdminModel extends CI_Model{
 		
 		return $this->db->update('food_items', $data2);
 
+	}
+
+	public function getAdminDetail($checkUser){
+		$this->db->select('employee.address, employee.contact_no');
+        $this->db->from('system_admin');
+        $this->db->join('employee','employee.emp_id=system_admin.emp_id','system_admin.admin_id='.$checkUser.'');
+        $query1=$this->db->get();
+
+        if($query1->num_rows()>0){
+            return $query1->result();
+        }
+        else{
+            return false;
+        }
+	}
+
+	public function editAdmin1(){
+		$data = array(
+
+            'admin_fname' => $this->input->post('fnm',TRUE),
+            'admin_lname' => $this->input->post('lnm', TRUE),            
+            'email' => $this->input->post('eml', TRUE)
+        );
+        $id1= $this->session->userdata('admin_id');
+        $id2= $this->session->userdata('emp_id');
+        
+        $this->db->where('admin_id',$id1);
+        $this->db->where('emp_id',$id2);
+        return $this->db->update('system_admin',$data);
+	}
+	public function editAdmin2(){
+		$data1 = array(
+
+            'emp_fname' => $this->input->post('fnm',TRUE),
+            'emp_lname' => $this->input->post('lnm', TRUE), 
+            'address' => $this->input->post('addr', TRUE),    
+            'contact_no' => $this->input->post('cntct', TRUE),             
+            'email' => $this->input->post('eml', TRUE)
+        );
+        $id1= $this->session->userdata('emp_id');
+        $this->db->where('emp_id',$id1);
+        return $this->db->update('employee',$data1);
 	}
 }
