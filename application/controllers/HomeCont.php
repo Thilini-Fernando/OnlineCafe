@@ -19,8 +19,18 @@ class HomeCont extends CI_Controller {
     public function editCust(){
         $this->load->view('Customer/UserProfile');
     }
+    public function order()
+    {
 
-	// All users can login to the system through this...
+        $this->load->view('AddNewOrder');
+
+    }
+    public function orderNow()
+    {
+        $this->load->view("Customer/OrderNow");
+    }
+
+    // All users can login to the system through this...
 
 	public function logUser(){
 		$this->form_validation->set_rules('eml', 'email', 'required|valid_email');

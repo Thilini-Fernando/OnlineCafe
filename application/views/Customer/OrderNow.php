@@ -8,7 +8,7 @@
                     <div class="header">
                         <h4 class="title">Our Foods</h4>
                     </div>
-                    <?php echo form_open('CustomerCont/addOrder'); ?>
+                    <?php echo form_open('HomeCont/order'); ?>
 
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover table-striped">
@@ -37,7 +37,7 @@
                                                     {
                                                 ?>
                                                 <td>
-                                                    <button class="btn btn-info btn-hover" name="orderAdd">Add </button>
+                                                    <button type="submit" class="btn btn-info btn-hover" name="orderAdd">Add </button>
                                                 </td>
 
 
@@ -52,8 +52,6 @@
                                 }
                             }
                                  ?>
-
-
 
 
                             </tbody>
