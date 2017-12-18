@@ -136,4 +136,9 @@ class HomeCont extends CI_Controller {
 		}
 		//echo 'Admin logged in..';
 	}
+
+	//AboutUsPage
+	public function AboutUs(){
+		$this->load->view('AboutUs');
+	}
 }
