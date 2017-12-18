@@ -1,6 +1,20 @@
 <?php
 
 class AdminModel extends CI_Model{
+
+	public function getEmpDet($id){
+		$this->db->where('emp_id',$id);
+        $query = $this->db->get('employee');
+
+        if ($query->num_rows()>0) {
+        	# code...
+        	return $query->row();
+        }else{
+        	return false;
+        }
+        
+	}
+
 	public function viewProf1()
     {
        	$id= $this->session->userdata('admin_id');
@@ -184,6 +198,23 @@ class AdminModel extends CI_Model{
 		
 		return $this->db->update('food_items', $data2);
 
+	}
+
+	public function editEmp($id){
+		//$empid_edited = $id;
+
+		$data = array(
+			'emp_fname' => $this->input->post('fnm',TRUE),
+			'emp_lname' => $this->input->post('lnm', TRUE),
+			'address' => $this->input->post('addr',TRUE),
+			'email' => $this->input->post('eml',TRUE),
+			'contact_no' => $this->input->post('cntct',TRUE)
+		);
+
+		$this->db->where('emp_id', $id);
+
+		
+		return $this->db->update('employee', $data);
 	}
 
 	public function getAdminDetail($checkUser){

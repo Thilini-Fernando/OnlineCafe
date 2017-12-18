@@ -34,7 +34,7 @@
 <body>   
 
 <div class="wrapper">
-    <div class="sidebar" data-color="lightgrey" data-image="<?php echo base_url("assets/Admin_assets/img/sidebar-5.jpg"); ?>">
+    <div class="sidebar" data-color="lightgrey" data-image="<?php echo base_url("assets/Admin_assets/img/sidebar6.jpeg"); ?>">
 
     <!--
 
@@ -124,7 +124,7 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
-                        <li>
+                        <!--li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-dashboard"></i>
 								<p class="hidden-lg hidden-md">Dashboard</p>
@@ -152,7 +152,7 @@
                                 <i class="fa fa-search"></i>
 								<p class="hidden-lg hidden-md">Search</p>
                             </a>
-                        </li>
+                        </li-->
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

@@ -18,8 +18,9 @@ class AdminCont extends CI_Controller{
 	}
 
 	public function editEmp($id){
-		$dta1['e_val']= $id;
-		$this->load->view('Admin/EditEmpView');
+		
+		$data4['e_val'] = $this->amc->getEmpDet($id);
+		$this->load->view('Admin/EditEmpView', $data4);
 	}
 
 	public function deleteCust($id){
@@ -67,8 +68,6 @@ class AdminCont extends CI_Controller{
 	}
 
 	public function editUserDet(){
-		//$this->form_validation->set_rules('admn_id', 'Admin id', 'required');
-		//$this->form_validation->set_rules('empl_id', 'Employee id', 'required');
 		$this->form_validation->set_rules('fnm', 'First name', 'required');
 		$this->form_validation->set_rules('lnm', 'Last name', 'required');
 		$this->form_validation->set_rules('eml', 'Admin id', 'required|valid_email');
@@ -100,6 +99,31 @@ class AdminCont extends CI_Controller{
 			}else{
 				$this->session->set_flashdata('msg','Something went wrong.. </br> Try Again later..');
 				redirect('AdminCont/viewUserDet');
+			}
+		}
+	}
+
+	public function editEmpCont($id){
+		$this->form_validation->set_rules('fnm', 'First name', 'required');
+		$this->form_validation->set_rules('lnm', 'Last name', 'required');
+		$this->form_validation->set_rules('eml', 'Admin id', 'required|valid_email');
+		$this->form_validation->set_rules('cntct', 'Contact', 'required');
+		$this->form_validation->set_rules('addr', 'Address', 'required');
+
+		if ($this->form_validation->run()==FALSE){
+			$this->session->set_flashdata('msg','Validation failed');
+			redirect('AdminCont/manageEmp');
+
+		}else{
+			$this->load->model('AdminModel');
+			$isEdited = $this->AdminModel->editEmp($id);
+
+			if($isEdited){
+				$this->session->set_flashdata('msg','Edited Succesfully..');
+				redirect('AdminCont/manageEmp');				
+			}else{
+				$this->session->set_flashdata('msg','Something went wrong.. </br> Try Again later..');
+				redirect('AdminCont/manageEmp');
 			}
 		}
 	}
