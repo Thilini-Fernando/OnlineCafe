@@ -46,8 +46,8 @@ Tip 1: you can change the color of the sidebar using: data-color="blue | azure |
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
-ServeMe
+                <a href="#" class="simple-text">
+                        ServeMe
                 </a>
             </div>
 
