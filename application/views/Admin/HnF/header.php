@@ -156,7 +156,7 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
+                        <!--li>
                            <a href="">
                                <p>Account</p>
                             </a>
@@ -178,7 +178,7 @@
                                 <li class="divider"></li>
                                 <li><a href="#">Separated link</a></li>
                               </ul>
-                        </li>
+                        </li-->
                         <li>
                             <a href="<?php echo base_url('index.php/AdminCont/logoutUser'); ?>">
                                 <p>Log out</p>
