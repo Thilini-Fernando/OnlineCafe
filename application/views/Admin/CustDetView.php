@@ -1,6 +1,11 @@
 <?php include 'HnF/header.php' ?>
 
         <div class="content">
+            
+            <?php if($this->session->flashdata('msg')){
+                echo "<h2>"."<center>"."<SMALL>".$this->session->flashdata('msg')."</center>"."</SMALL>"."</h2>";
+            } ?>
+
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
@@ -37,8 +42,8 @@
                                                         <td><?php echo $pvalue->contact_no ?></td>
                                                         <td><?php echo $pvalue->address ?></td>    
                                                         <td>
-                                                            <button class="btn btn-info btn-hover">Edit</button>
-                                                            <button class="btn btn-warning btn-hover">Delete</button>
+                                                            <!--a href="" class="btn btn-info">Edit</a-->
+                                                            <a href="<?php echo base_url('index.php/AdminCont/deleteCust/'.$pvalue->cust_id); ?>" class="btn btn-warning">Delete</a>
                                                         </td>
                                                     </tr>
                                                     <?php 

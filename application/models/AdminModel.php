@@ -112,6 +112,40 @@ class AdminModel extends CI_Model{
 		}
 	}
 
+	public function deleteCust($id){
+		
+		$this->db->where('cust_id', $id);
+		$this->db->delete('orders');
+
+		$this->db->where('cust_id', $id);
+		$this->db->delete('order_details');
+		
+		$this->db->where('cust_id', $id);
+		$this->db->delete('customer');
+
+		if ($this->db->affected_rows()>0) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function deleteEmp($id){
+
+		$this->db->where('emp_id', $id);
+		$this->db->delete('system_admin');
+
+		$this->db->where('emp_id', $id);
+		$this->db->delete('employee');
+
+		if ($this->db->affected_rows()>0) {
+			return true;
+		}else{
+			return false;
+		}
+
+	}
+
 	public function getFoodTableData(){
 		$myans = $this->db->get('food_items');
 		if ($myans->num_rows()>0) {
