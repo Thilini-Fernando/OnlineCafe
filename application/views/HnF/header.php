@@ -34,7 +34,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">           
+        <div class="collapse navbar-collapse" id="navbarResponsive">
 
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item px-lg-4 ">
@@ -48,18 +48,18 @@
                   <a class="nav-link text-uppercase text-expanded" href="#">Blog</a>
                 </li-->
                 <li class="nav-item px-lg-4">
-                  <a class="nav-link text-uppercase text-expanded" href="#">Contact Us</a>
+                  <a class="nav-link text-uppercase text-expanded" href="<?php echo base_url("index.php/HomeCont/AboutUs"); ?>">About Us</a>
                 </li>
 
                 <li>
                     <a class="nav-link text-uppercase text-expanded" href="<?php echo base_url("index.php/HomeCont/viewLogin"); ?>">Login
-                    
+
                     </a>
                 </li>
             </ul>
 
             <!--ul class="nav navbar-nav navbar-right">
-                
+
             </ul-->
 
         </div>
