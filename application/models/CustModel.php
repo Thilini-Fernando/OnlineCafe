@@ -90,21 +90,19 @@ class CustModel extends CI_Model{
         }
 
     }
+    public function viewAllFoods()
+    {
+        $query2 = $this->db->get('food_items');
+        if($query2->num_rows()>0){
+            return $query2->result();
+        }
+        else{
+            return false;
+        }
+
+    }
 
 
-
-//
-//    public function viewAvailableFood()
-//    {
-//        $query5 = $this->db->get('food_items');
-//        if($query5->num_rows()>0){
-//            return $query5->result();
-//        }
-//        else{
-//            return false;
-//        }
-//
-//    }
 
     public function addNewOrder($qty,$fid)
     {
@@ -145,6 +143,48 @@ class CustModel extends CI_Model{
 
 
     }
+
+
+    public function addLaterOrder($qty,$fid,$date)
+    {
+
+
+        $takenDate = date('Y-m-d ');
+        $custID= $this->session->userdata('user_id');
+
+        $data2 = array(
+            'taken_date' => $takenDate,
+            'due_date' => $date,
+            'cust_id' => $custID,
+        );
+        $this->db->insert('orders',$data2);
+
+
+        $myquery = "SELECT MAX(order_id) AS maxOrid FROM orders";
+        $res=$this->db->query($myquery)->row()->maxOrid;
+        $orderID = $res;
+        // $data10= $this->db->query("SELECT selected_food.required_qty*food_items.unit_price AS Value FROM selected_food, food_items WHERE selected_food.food_id=food_items.food_id ");
+        $data8=$this->db->query("SELECT required_qty FROM selected_food ");
+        $data9=$this->db->query("SELECT unit_price FROM food_items ");
+        $data10=$data8*$data9;
+
+
+        $data1 = array(
+            'required_qty' =>$qty,
+            'order_id'  => $orderID,
+            'food_id' => $fid,
+            'item_price'=>doubleval($data10),
+
+        );
+
+        return $this->db->insert('selected_food',$data1);
+
+
+
+
+    }
+
+
 
 
 }

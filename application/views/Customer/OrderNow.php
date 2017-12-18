@@ -1,6 +1,10 @@
 <?php include 'HnF/header.php'?>
 
 <div class="content">
+
+    <?php if($this->session->flashdata('msg')){
+        echo "<h2>"."<center>"."<SMALL>".$this->session->flashdata('msg')."</center>"."</SMALL>"."</h2>";
+    } ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
