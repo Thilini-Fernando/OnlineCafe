@@ -174,7 +174,7 @@ Dropdown
                         </li-->
 
                         <li>
-                            <a href="<?php echo base_url('index.php/AdminCont/logoutUser'); ?>">
+                            <a href="<?php echo base_url('index.php/CustomerCont/logoutUser'); ?>">
                                 <p>Log out</p>
                             </a>
                         </li>

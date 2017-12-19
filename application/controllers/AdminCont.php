@@ -6,6 +6,12 @@ class AdminCont extends CI_Controller{
 		$this->load->model('AdminModel', 'amc');
 	}
 
+	public function viewOrderDetails(){
+		$this->load->model('CustModel');
+        $data3['o_val'] = $this->CustModel->viewOrder();
+		$this->load->view('Admin/OrderDetailsView',$data3);
+	}
+
 	public function deleteEmp($id){
 		$result = $this->amc->deleteEmp($id);
 		if ($result) {
