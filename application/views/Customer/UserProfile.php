@@ -1,7 +1,7 @@
 
 <?php include 'HnF/header.php'?>
 
-<div class="content">
+<div class="content" style="color:#FFFFFF; background-image:url('http://s3.amazonaws.com/cme_public_images/www_livestrong_com/photos.demandstudios.com/getty/article/103/184/106516868_XS.jpg');background-size: 1150px 700px;">
     <h3>
         <?php echo ''.$this->session->userdata('fname').' '.$this->session->userdata('lname').' is here..' ?>
 
@@ -12,10 +12,10 @@
     } ?>
 
 
-
+    <div class="col-lg-offset-3">
     <div class="container-fluid" >
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8")">
                 <div class="card">
                     <div class="header">
                         <h4 class="title">Your Profile Details</h4>
@@ -83,7 +83,6 @@
 
 
                     </div>
-                    <hr>
 <!--            <div class="card" style="width:200px">-->
 <!---->
 <!--                <img class="right" src="/assets/Customer_assets/img/prof.jpeg" alt="Card image">-->
@@ -92,6 +91,7 @@
 <!--            </div>-->
 
                 </div>
+</div>
             </div>
 
         </div>

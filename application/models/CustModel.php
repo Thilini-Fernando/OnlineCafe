@@ -68,13 +68,16 @@ class CustModel extends CI_Model{
 
     public function viewOrder()
     {
+
         $query3= $this->db->query("SELECT orders.order_id,orders.taken_date,orders.due_date,order_details.status,(selected_food.required_qty*selected_food.item_price) as price FROM orders JOIN order_details JOIN selected_food WHERE orders.order_id=order_details.order_id AND orders.order_id=selected_food.order_id");
 
         if($query3->num_rows()>0){
             return $query3->result();
+
         }
         else{
             return false;
+
         }
 
     }
