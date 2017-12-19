@@ -35,7 +35,7 @@
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="#A9CCE3  " data-image="<?php echo base_url("assets/Admin_assets/img/sidebar-5.jpg"); ?>">
+    <div class="sidebar" data-color="#A9CCE3  " data-image="<?php echo base_url("assets/Admin_assets/img/b.jpg"); ?>">
 
     <!--
 

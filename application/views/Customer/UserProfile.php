@@ -1,7 +1,7 @@
 
 <?php include 'HnF/header.php'?>
 
-<div class="content" style="color:#FFFFFF; background-image:url('http://s3.amazonaws.com/cme_public_images/www_livestrong_com/photos.demandstudios.com/getty/article/103/184/106516868_XS.jpg');background-size: 1150px 700px;">
+<div class="content" style="color:#FFFFFF; background-image:url('https://s3.amazonaws.com/assets.forward.com/images/cropped/screen-shot-2017-10-15-at-22528-pm-1508093841.png');background-size: 1150px 700px;">
     <h3>
         <?php echo ''.$this->session->userdata('fname').' '.$this->session->userdata('lname').' is here..' ?>
 
@@ -12,7 +12,7 @@
     } ?>
 
 
-    <div class="col-lg-offset-3">
+    <div class="col-lg-offset-2">
     <div class="container-fluid" >
         <div class="row">
             <div class="col-md-8")">

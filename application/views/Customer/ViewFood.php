@@ -6,7 +6,10 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Our Foods</h4>
+                                <h3 class="title" align="center">Our Foods</h3>
+                                <h6>We serve these foods for you...............</h6>
+                                <p class="category">Most delicious and so many varities</p>
+
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
