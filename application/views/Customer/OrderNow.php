@@ -10,7 +10,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Order Now </h4>
+                        <h3 class="title" align="center">Order Now </h3>
+                        <h6>You can order now..................</h6>
                     </div>
 
                     <div class="content table-responsive table-full-width">

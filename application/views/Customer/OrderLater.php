@@ -7,10 +7,9 @@
                 <div class="card">
                     <div class="header">
 
-                        <h4 class="title">Our Foods</h4>
+                        <h3 class="title" align="center">Order Later</h3>
 
-                        <h4 class="title">The Food Menu</h4>
-                        <p class="category">Most delicious and so many varities</p>
+                        <h6>You can order for later..................</h6>
 
                     </div>
 
