@@ -120,7 +120,7 @@
                                      <a href="#">
                                     <img class="avatar border-gray" src="<?php echo base_url("assets/Admin_assets/img/faces/face-3.jpg"); ?>" alt="..."/>
 
-                                      <h4 class="title"><?php echo ($this->session->userdata('fname')." ".$this->session->userdata('lname')); ?><br />
+                                      <h4 class="title"><?= $emp_fname.' '.$emp_lname ?><br />
                                          
                                       </h4>
                                     </a>

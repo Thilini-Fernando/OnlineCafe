@@ -198,8 +198,8 @@ class AdminCont extends CI_Controller{
 		$this->form_validation->set_rules('itm_price', 'Item price', 'required');
 
 		if ($this->form_validation->run()==FALSE){
-			//echo 'validation failed';
-			$this->load->view('Admin/FoodView');
+			$this->session->set_flashdata('msg','Validation failed...');
+			redirect('AdminCont/mngFood');
 		}
 		else{
 			$this->load->model('AdminModel');
@@ -207,9 +207,9 @@ class AdminCont extends CI_Controller{
 
 			if ($checkInsert) {
 				
-				//$this->session->set_userdata($admn_det1);
-				redirect('AdminCont/mngFood');
+				$this->session->set_flashdata('msg','Food item added successfuly..');				redirect('AdminCont/mngFood');
 			}else{
+				$this->session->set_flashdata('msg','Something went wrong.. <br> Try again later..');
 				redirect('AdminCont/mngFood');
 
 			}
