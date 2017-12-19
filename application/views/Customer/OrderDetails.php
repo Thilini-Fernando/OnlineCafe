@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Our Foods</h4>
+                        <h4 class="title">Order Details</h4>
                     </div>
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover table-striped">
@@ -22,7 +22,7 @@
 
                             <?php
                             if($o_val){
-                                foreach($o_val as $fvalue){
+                                foreach($o_val as $ovalue){
                                     ?>
 
                                     <tr>

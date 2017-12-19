@@ -10,7 +10,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Our Foods</h4>
+                        <h4 class="title">Order Now </h4>
                     </div>
 
                     <div class="content table-responsive table-full-width">
