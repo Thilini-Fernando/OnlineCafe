@@ -1,5 +1,9 @@
 <?php include 'HnF/header.php' ?>
 
+    <?php if($this->session->flashdata('msg')){
+                echo "<h2>"."<center>"."<SMALL>".$this->session->flashdata('msg')."</center>"."</SMALL>"."</h2>";
+            } ?>
+
         <div class="content">
             <div class="container-fluid">
                 <div class="container" align="center" style="text-align: left;">

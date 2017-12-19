@@ -94,17 +94,17 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="<?php echo base_url('index.php/AdminCont/viewOrderDetails'); ?>">
                         <i class="pe-7s-cart"></i>
                         <p>Order details</p>
                     </a>
                 </li>
-                <li>
+                <!--li>
                     <a href="#">
                         <i class="pe-7s-bell"></i>
                         <p>Notifications</p>
                     </a>
-                </li>
+                </li-->
 				
             </ul>
     	</div>
