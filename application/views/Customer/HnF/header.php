@@ -1,3 +1,8 @@
+<?php 
+    if(!($this->session->userdata('loggedIn'))){
+        redirect('HomeCont/viewLogin');
+    }
+?>
 
 <!doctype html>
 <html lang="en">

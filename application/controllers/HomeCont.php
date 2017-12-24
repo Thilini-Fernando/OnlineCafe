@@ -91,7 +91,7 @@ class HomeCont extends CI_Controller {
 						'email'=>$checkAdmnLog_1->email,
 						'password'=>$checkAdmnLog_1->password,
 						'mstrkry'=>$checkAdmnLog_1->masterkey,
-						'loggedIn' => TRUE
+						//'loggedIn' => TRUE
 					);
 					$this->session->set_userdata($admn_det);
 					//redirect('CustomerCont/viewProfile');
@@ -123,8 +123,11 @@ class HomeCont extends CI_Controller {
 			$checkAdmnLog_2 = $this->AdminModel->logAdmn2();
 
 			if ($checkAdmnLog_2) {
+				$admn_det2 = array(
+						'loggedIn' => TRUE
+					);
 
-				//$this->session->set_userdata($admn_det1);
+				$this->session->set_userdata($admn_det2);
 				redirect('AdminCont/viewUserDet');
 			}else{
 				redirect('AdminCont/logoutUser');

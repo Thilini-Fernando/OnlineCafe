@@ -7,6 +7,8 @@
 		<center>
 			<h1><b>Admin Login Form</b></h1>
 			<h2><b>You need to input your pin no..</b></h2>
+			<br>
+			
 		</center>
 
 		<?php if($this->session->flashdata('msg2')){
