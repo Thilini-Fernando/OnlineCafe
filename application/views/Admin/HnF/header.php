@@ -1,3 +1,9 @@
+<?php 
+    if(!($this->session->userdata('loggedIn'))){
+        redirect('HomeCont/viewLogin');
+    }
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -69,12 +75,12 @@
                         <p>Add Admin</p>
                     </a>
                 </li>
-                <li>
-                    <a href="<?php echo base_url("index.php/AdminCont/addEmployee"); ?>">
+                <!--li>
+                    <a href="<//?php echo base_url("index.php/AdminCont/addEmployee"); ?>">
                         <i class="pe-7s-add-user"></i>
                         <p>Add Employee</p>
                     </a>
-                </li>
+                </li-->
                 <li>
                     <a href="<?php echo base_url("index.php/AdminCont/manageEmp"); ?>">
                         <i class="pe-7s-users"></i>
