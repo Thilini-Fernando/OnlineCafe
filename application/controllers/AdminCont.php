@@ -168,8 +168,8 @@ class AdminCont extends CI_Controller{
 		$this->form_validation->set_rules('pwd_a', 'Password again', 'required|matches[pwd]');
 
 		if ($this->form_validation->run()==FALSE){
-			//echo 'validation failed';
-			$this->load->view('Admin/addAdmin');
+			$this->session->set_flashdata('msg','Validation failed..');
+				redirect('AdminCont/addAdmin');
 
 		}else{
 			//echo 'validated succesfully';
@@ -254,7 +254,6 @@ class AdminCont extends CI_Controller{
 	public function regEmp(){
 		$this->form_validation->set_rules('fnm', 'First name', 'required');
 		$this->form_validation->set_rules('lnm', 'Last name', 'required');
-		//$this->form_validation->set_rules('pstn', 'Position', 'required');
 		$this->form_validation->set_rules('addr', 'Address', 'required');
 		$this->form_validation->set_rules('dob', 'date of birth', 'required');
 		$this->form_validation->set_rules('cntct', 'Contact no', 'required|max_length[10]|min_length[10]');
@@ -262,7 +261,8 @@ class AdminCont extends CI_Controller{
 
 		if ($this->form_validation->run()==FALSE){
 			//echo 'validation failed';
-			$this->load->view('Admin/AddEmpView');
+			$this->session->set_flashdata('msg','Validation failed..');
+			redirect('AdminCont/addEmployee');
 
 		}else{
 			//echo 'validated succesfully';

@@ -43,40 +43,40 @@
                                         <td><?php echo $nvalue->food_id?></td>
                                         <td><?php echo $nvalue->food_name?></td>
                                         <td><?php echo $nvalue->remaining_qty?></td>
+
                                         <?php
-                                            if(($nvalue->remaining_qty)>0)
 
-                                                    {
+                                        if(($nvalue->remaining_qty)>0)
+                                            
+                                        {
+
+                                        ?>
+
+                                            <td>
+                                                <input type="text" class="form-control" name="qty1"></input>
+                                            </td>
+
+                                            <td>
+
+                                                <button type="submit" onclick="Submit(this);" class="btn btn-info btn-hover"  value="<//?php echo $nvalue->food_id;?>">Order</button>
 
 
-                                                ?>
-
-
-
-
-                                                        <td>
-
-                                                            <input type="text" class="form-control" name="qty1"> </input>
-
-                                                        </td>
-                                                <td>
-
-                                                    <button type="submit" onclick="Submit(this);" class="btn btn-info btn-hover"  value="<?php echo $nvalue->food_id;?>" >
                                                 </td>
 
 
 
-                                                <?php
-                                                    }
-                                            else{
-                                                ?>
-                                                <td>Unavailable</td>
-                                                <td>Unavailable</td>
+                                        <?php
 
-                                                <?php
-                                            }
+                                        }
+                                        else{
+                                        ?>
+                                            <td>Unavailable</td>
+                                            <td>Unavailable</td>
 
-                                                ?>
+                                        <?php
+                                        }
+
+                                        ?>
                                     </tr>
 
 

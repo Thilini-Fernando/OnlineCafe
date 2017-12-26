@@ -46,7 +46,7 @@
 				    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password again" name="pwd_a" minlength="4">
 				</div >			 
 
-				<div> 
+				<div align="right"> 
 					<button type="submit" class="btn btn-success"><b> Submit form </b></button>
 				</div>			
 				
