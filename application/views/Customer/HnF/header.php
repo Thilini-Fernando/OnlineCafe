@@ -1,5 +1,5 @@
 <?php 
-    if(!($this->session->userdata('loggedIn'))){
+    if(!($this->session->userdata('cust_loggedIn'))){
         redirect('HomeCont/viewLogin');
     }
 ?>

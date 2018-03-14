@@ -71,7 +71,7 @@ class HomeCont extends CI_Controller {
 					'address'=>$checkCustLog->address,
 					'contact'=>$checkCustLog->contact_no,
 					'email'=>$checkCustLog->email,
-					'loggedIn' => TRUE
+					'cust_loggedIn' => TRUE
 
 				);
 
@@ -81,7 +81,24 @@ class HomeCont extends CI_Controller {
                 $this->load->model('AdminModel');
                 $checkAdmnLog_1 = $this->AdminModel->logAdmn1();
 
-				if ($checkAdmnLog_1) {
+				if ($checkAdmnLog_1->admin_status=='Super Admin') {
+					# code...
+					$sadmn_det = array(
+						'admin_id'=>$checkAdmnLog_1->admin_id,
+						'emp_id'=>$checkAdmnLog_1->emp_id,
+						'fname'=>$checkAdmnLog_1->admin_fname,
+						'lname'=>$checkAdmnLog_1->admin_lname,
+						'email'=>$checkAdmnLog_1->email,
+						'password'=>$checkAdmnLog_1->password,
+						'mstrkry'=>$checkAdmnLog_1->masterkey,
+						//'loggedIn' => TRUE
+					);
+					$this->session->set_userdata($sadmn_det);
+					//redirect('CustomerCont/viewProfile');
+					$this->load->view('SupAdmnLoginview');
+
+
+				}else if ($checkAdmnLog_1->admin_status=='Admin') {
 					# code...
 					$admn_det = array(
 						'admin_id'=>$checkAdmnLog_1->admin_id,
@@ -124,7 +141,7 @@ class HomeCont extends CI_Controller {
 
 			if ($checkAdmnLog_2) {
 				$admn_det2 = array(
-						'loggedIn' => TRUE
+						'admn_loggedIn' => TRUE
 					);
 
 				$this->session->set_userdata($admn_det2);
@@ -133,12 +150,33 @@ class HomeCont extends CI_Controller {
 				redirect('AdminCont/logoutUser');
 
 			}
-
-
-
 		}
-		//echo 'Admin logged in..';
 	}
+	public function logSAdmin(){
+		$this->form_validation->set_rules('mstrk', 'masterkey', 'required');
+		$this->form_validation->set_rules('sadmnk', 'super key', 'required');
+		if ($this->form_validation->run()==FALSE){
+			//echo 'validation failed';
+			$this->load->view('Loginview');
+		}
+		else{
+			$this->load->model('AdminModel');
+			$checkAdmnLog_2 = $this->AdminModel->logSAdmn();
+
+			if ($checkAdmnLog_2) {
+				$admn_det2 = array(
+						'supadmn_loggedIn' => TRUE
+					);
+
+				$this->session->set_userdata($admn_det2);
+				redirect('SuperAdminCont/viewUserDet');
+			}else{
+				redirect('SuperAdminCont/logoutUser');
+
+			}
+		}
+	}
+
 
 	//AboutUsPage
 	public function AboutUs(){

@@ -1,5 +1,5 @@
 <?php 
-    if(!($this->session->userdata('admn_loggedIn'))){
+    if(!($this->session->userdata('supadmn_loggedIn'))){
         redirect('HomeCont/viewLogin');
     }
 ?>
@@ -11,7 +11,7 @@
 	<link rel="icon" type="image/png" href="<?php echo base_url("assets/Admin_assets/img/favicon.ico"); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Admin profile</title>
+	<title>Super Admin profile</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -40,7 +40,7 @@
 <body>   
 
 <div class="wrapper">
-    <div class="sidebar" data-color="lightgrey" data-image="<?php echo base_url("assets/Admin_assets/img/sidebar6.jpeg"); ?>">
+    <div class="sidebar" data-color="lightgrey" data-image="<?php echo base_url("assets/Admin_assets/img/sidebar-2.jpg"); ?>">
 
     <!--
 
@@ -51,7 +51,7 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="#" class="simple-text">
+                <a href="<?php echo base_url(); ?>" class="simple-text">
                     ServeMe
                 </a>
             </div>
@@ -64,53 +64,53 @@
                     </a>
                 </li-->
                 <li>
-                    <a href="<?php echo base_url("index.php/AdminCont/viewUserDet"); ?>">
+                    <a href="<?php echo base_url("index.php/SuperAdminCont/viewUserDet"); ?>">
                         <i class="pe-7s-user"></i>
                         <p>User Profile</p>
                     </a>
                 </li>
-                <!--li>
-                    <a href="<//?php echo base_url("index.php/AdminCont/addAdmin"); ?>">
+                <li>
+                    <a href="<?php echo base_url("index.php/SuperAdminCont/addAdmin"); ?>">
                         <i class="pe-7s-add-user"></i>
                         <p>Add Admin</p>
                     </a>
                 </li>
-                <li>
+                <!--li>
                     <a href="<//?php echo base_url("index.php/AdminCont/addEmployee"); ?>">
                         <i class="pe-7s-add-user"></i>
                         <p>Add Employee</p>
                     </a>
                 </li-->
                 <li>
-                    <a href="<?php echo base_url("index.php/AdminCont/manageEmp"); ?>">
+                    <a href="<?php echo base_url("index.php/SuperAdminCont/manageEmp"); ?>">
                         <i class="pe-7s-users"></i>
                         <p>Manage Employees</p>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url("index.php/AdminCont/viewCustDet"); ?>">
+                    <a href="<?php echo base_url("index.php/SuperAdminCont/viewCustDet"); ?>">
                         <i class="pe-7s-note2"></i>
                         <p>Customer Details</p>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url("index.php/AdminCont/mngFood"); ?>">
+                    <a href="<?php echo base_url("index.php/SuperAdminCont/mngFood"); ?>">
                         <i class="pe-7s-coffee"></i>                       
                         <p>Manage Food</p>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url('index.php/AdminCont/viewOrderDetails'); ?>">
+                    <a href="<?php echo base_url('index.php/SuperAdminCont/viewOrderDetails'); ?>">
                         <i class="pe-7s-cart"></i>
                         <p>Manage Orders</p>
                     </a>
                 </li>
-                <!--li>
+                <li>
                     <a href="#">
                         <i class="pe-7s-bell"></i>
-                        <p>Notifications</p>
+                        <p>Change Password</p>
                     </a>
-                </li-->
+                </li>
 				
             </ul>
     	</div>
@@ -126,7 +126,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Dashboard</a>
+                    <a class="navbar-brand" href="">Super Admin Panel</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
@@ -186,7 +186,7 @@
                               </ul>
                         </li-->
                         <li>
-                            <a href="<?php echo base_url('index.php/AdminCont/logoutUser'); ?>">
+                            <a href="<?php echo base_url('index.php/SuperAdminCont/logoutUser'); ?>">
                                 <p>Log out</p>
                             </a>
                         </li>

@@ -43,7 +43,7 @@
                                                         <td><?php echo $pvalue->address ?></td>    
                                                         <td>
                                                             <!--a href="" class="btn btn-info">Edit</a-->
-                                                            <a href="<?php echo base_url('index.php/AdminCont/deleteCust/'.$pvalue->cust_id); ?>" class="btn btn-warning">Delete</a>
+                                                            <a href="<?php echo base_url('index.php/SuperAdminCont/deleteCust/'.$pvalue->cust_id); ?>" class="btn btn-warning">Delete</a>
                                                         </td>
                                                     </tr>
                                                     <?php 

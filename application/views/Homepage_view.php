@@ -1,8 +1,13 @@
 <?php include 'HnF/header.php' ?>   
 
+  <br>
+
     <div class="container" style="background-color: black">
 
+      <br>
+
       <div class="bg-faded p-4 my-4">
+
         <!-- Image Carousel -->
         <div class="container col-md-8 col-lg-8">
           
@@ -38,7 +43,7 @@
         <p>We are the ones who prepare delicious food that you are looking for...</p>
         <p>If you need to taste just make a order we will deliver your choice to your door step..</p>
         <p>Your desire is our choice...</p>
-        <hr>
+        
       </div>
 
       <br>

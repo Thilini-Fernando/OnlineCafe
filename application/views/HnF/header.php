@@ -1,3 +1,17 @@
+<?php 
+    if($this->session->userdata('supadmn_loggedIn')){
+        redirect('SuperAdminCont/viewUserDet');
+    }
+
+    if($this->session->userdata('admn_loggedIn')){
+        redirect('AdminCont/viewUserDet');
+    }
+    if($this->session->userdata('cust_loggedIn')){
+        redirect('CustomerCont/viewProfile');
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

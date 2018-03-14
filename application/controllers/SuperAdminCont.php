@@ -1,6 +1,6 @@
 <?php 
 
-class AdminCont extends CI_Controller{
+class SuperAdminCont extends CI_Controller{
 	function __construct(){
 		parent:: __construct();
 		$this->load->model('AdminModel', 'amc');
@@ -9,24 +9,24 @@ class AdminCont extends CI_Controller{
 	public function viewOrderDetails(){
 		$this->load->model('CustModel');
         $data3['o_val'] = $this->CustModel->viewOrder();
-		$this->load->view('Admin/OrderDetailsView',$data3);
+		$this->load->view('Super Admin/OrderDetailsView',$data3);
 	}
 
 	public function deleteEmp($id){
 		$result = $this->amc->deleteEmp($id);
 		if ($result) {
 			$this->session->set_flashdata('msg','Successfully deleted..');
-			redirect('AdminCont/manageEmp');
+			redirect('SuperAdminCont/manageEmp');
 		}else{
 			$this->session->set_flashdata('msg','Deletion failed');
-			redirect('AdminCont/manageEmp');
+			redirect('SuperAdminCont/manageEmp');
 		}
 	}
 
 	public function editEmp($id){
 		
 		$data4['e_val'] = $this->amc->getEmpDet($id);
-		$this->load->view('Admin/EditEmpView', $data4);
+		$this->load->view('Super Admin/EditEmpView', $data4);
 	}
 
 	public function deleteCust($id){
@@ -34,10 +34,10 @@ class AdminCont extends CI_Controller{
 		$result = $this->amc->deleteCust($id);
 		if ($result) {
 			$this->session->set_flashdata('msg','Successfully deleted..');
-			redirect('AdminCont/viewCustDet');
+			redirect('SuperAdminCont/viewCustDet');
 		}else{
 			$this->session->set_flashdata('msg','Deletion failed');
-			redirect('AdminCont/viewCustDet');
+			redirect('SuperAdminCont/viewCustDet');
 		}
 	}
 
@@ -57,7 +57,7 @@ class AdminCont extends CI_Controller{
 	        $_SESSION['email'],
 	        $_SESSION['password'],
 	        $_SESSION['mstrkey'],
-	        $_SESSION['admn_loggedIn']
+	        $_SESSION['supadmn_loggedIn']
 
 		);
 		redirect('HomeCont/viewLogin');
@@ -70,7 +70,7 @@ class AdminCont extends CI_Controller{
         //$data1 = $this->AdminModel->viewProf1();
         $data2 = $this->AdminModel->viewProf2();
         //$this->load->view('Customer/UserProfile', $data);
-		$this->load->view('Admin/userProfile',$data2);
+		$this->load->view('Super Admin/userProfile',$data2);
 	}
 
 	public function editUserDet(){
@@ -83,7 +83,7 @@ class AdminCont extends CI_Controller{
 		if ($this->form_validation->run()==FALSE){
 			//echo 'validation failed';
 			$this->session->set_flashdata('msg','Validation failed');
-			redirect('AdminCont/viewUserDet');
+			redirect('SuperAdminCont/viewUserDet');
 
 		}else{
 			//echo 'validated succesfully';
@@ -96,15 +96,15 @@ class AdminCont extends CI_Controller{
 
 				if($isEdited2){
 					$this->session->set_flashdata('msg','Edited Succesfully..');
-					redirect('AdminCont/viewUserDet');
+					redirect('SuperAdminCont/viewUserDet');
 				}else{
 					$this->session->set_flashdata('msg','Something went wrong.. </br> Try Again later..');
-					redirect('AdminCont/viewUserDet');
+					redirect('SuperAdminCont/viewUserDet');
 				}
 				
 			}else{
 				$this->session->set_flashdata('msg','Something went wrong.. </br> Try Again later..');
-				redirect('AdminCont/viewUserDet');
+				redirect('SuperAdminCont/viewUserDet');
 			}
 		}
 	}
@@ -118,7 +118,7 @@ class AdminCont extends CI_Controller{
 
 		if ($this->form_validation->run()==FALSE){
 			$this->session->set_flashdata('msg','Validation failed');
-			redirect('AdminCont/manageEmp');
+			redirect('SuperAdminCont/manageEmp');
 
 		}else{
 			$this->load->model('AdminModel');
@@ -126,35 +126,35 @@ class AdminCont extends CI_Controller{
 
 			if($isEdited){
 				$this->session->set_flashdata('msg','Edited Succesfully..');
-				redirect('AdminCont/manageEmp');				
+				redirect('SuperAdminCont/manageEmp');				
 			}else{
 				$this->session->set_flashdata('msg','Something went wrong.. </br> Try Again later..');
-				redirect('AdminCont/manageEmp');
+				redirect('SuperAdminCont/manageEmp');
 			}
 		}
 	}
 
 	public function addAdmin(){
-		$this->load->view('Admin/addAdmnView');
+		$this->load->view('Super Admin/addAdmnView');
 	}
 
 	
 
 	public function manageEmp(){
 		$dta['p_val'] = $this->amc->getEmpTableData();
-		$this->load->view('Admin/manageEmpView', $dta);
+		$this->load->view('Super Admin/manageEmpView', $dta);
 	}
 
 	public function viewCustDet(){
 		$dta2['p_val'] = $this->amc->getCustTableData();
-		$this->load->view('Admin/CustDetView', $dta2);
+		$this->load->view('Super Admin/CustDetView', $dta2);
 	}
 
 	
 
 	public function mngFood(){
 		$dta3['p_val'] = $this->amc->getFoodTableData();
-		$this->load->view('Admin/FoodView', $dta3);
+		$this->load->view('Super Admin/FoodView', $dta3);
 	}
 
 	public function regAdmin(){
@@ -169,7 +169,7 @@ class AdminCont extends CI_Controller{
 
 		if ($this->form_validation->run()==FALSE){
 			$this->session->set_flashdata('msg','Validation failed..');
-				redirect('AdminCont/addAdmin');
+				redirect('SuperAdminCont/addAdmin');
 
 		}else{
 			//echo 'validated succesfully';
@@ -184,10 +184,10 @@ class AdminCont extends CI_Controller{
 
 			if ($isReg) {
 				$this->session->set_flashdata('msg','Admin registered succesfully..');
-				redirect('AdminCont/addAdmin');
+				redirect('SuperAdminCont/addAdmin');
 			}else{
 				$this->session->set_flashdata('msg','Registration was unsuccesful.. Try again later..');
-				redirect('AdminCont/addAdmin');
+				redirect('SuperAdminCont/addAdmin');
 			}
 		}
 	}
@@ -199,7 +199,7 @@ class AdminCont extends CI_Controller{
 
 		if ($this->form_validation->run()==FALSE){
 			$this->session->set_flashdata('msg','Validation failed...');
-			redirect('AdminCont/mngFood');
+			redirect('SuperAdminCont/mngFood');
 		}
 		else{
 			$this->load->model('AdminModel');
@@ -207,10 +207,10 @@ class AdminCont extends CI_Controller{
 
 			if ($checkInsert) {
 				
-				$this->session->set_flashdata('msg','Food item added successfuly..');				redirect('AdminCont/mngFood');
+				$this->session->set_flashdata('msg','Food item added successfuly..');				redirect('SuperAdminCont/mngFood');
 			}else{
 				$this->session->set_flashdata('msg','Something went wrong.. <br> Try again later..');
-				redirect('AdminCont/mngFood');
+				redirect('SuperAdminCont/mngFood');
 
 			}
 		}
@@ -223,7 +223,7 @@ class AdminCont extends CI_Controller{
 
 		if ($this->form_validation->run()==FALSE){
 			$this->session->set_flashdata('msg','Validated unsuccessfully.. Try again later..');
-			redirect('AdminCont/mngFood');
+			redirect('SuperAdminCont/mngFood');
 			//$this->load->view('HomeView');
 
 		}else{
@@ -234,12 +234,12 @@ class AdminCont extends CI_Controller{
 
 				if ($isReg==TRUE) {
 	                $this->session->set_flashdata('msg','Successfully updated');
-					redirect('AdminCont/mngFood');
+					redirect('SuperAdminCont/mngFood');
 
 
 	            }else{
 					$this->session->set_flashdata('msg','Updation was unsuccesful.. Try again later..');
-					redirect('AdminCont/mngFood');
+					redirect('SuperAdminCont/mngFood');
 				}
 			
 		}
@@ -247,7 +247,7 @@ class AdminCont extends CI_Controller{
 
 	//addEmployee Controler
 	public function addEmployee(){
-		$this->load->view('Admin/AddEmpView');
+		$this->load->view('Super Admin/AddEmpView');
 	}
 
 	//Employee Registration Controler
@@ -262,7 +262,7 @@ class AdminCont extends CI_Controller{
 		if ($this->form_validation->run()==FALSE){
 			//echo 'validation failed';
 			$this->session->set_flashdata('msg','Validation failed..');
-			redirect('AdminCont/addEmployee');
+			redirect('SuperAdminCont/addEmployee');
 
 		}else{
 			//echo 'validated succesfully';
@@ -273,7 +273,7 @@ class AdminCont extends CI_Controller{
 			
 			if ($isReg1==FALSE) {
 				$this->session->set_flashdata('msg','Registration was unsuccesful.. Try again later..');
-				redirect('AdminCont/addEmployee');
+				redirect('SuperAdminCont/addEmployee');
 				# code...
 			}
 			if($isReg1==TRUE){
@@ -283,12 +283,12 @@ class AdminCont extends CI_Controller{
 
 			if ($isReg2==TRUE) {
                 $this->session->set_flashdata('msg','Delivery Crew registered succesfully..');
-				redirect('AdminCont/addEmployee');
+				redirect('SuperAdminCont/addEmployee');
 
 
             }else{
 				$this->session->set_flashdata('msg','Employee registered succesfully..');
-				redirect('AdminCont/addEmployee');
+				redirect('SuperAdminCont/addEmployee');
 			}
 		}
 	}

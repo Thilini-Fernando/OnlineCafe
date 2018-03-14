@@ -23,7 +23,7 @@
 
 			<div class="container" >
 
-				<br>
+				
 
 				<div class="container col-sm-6 col-sm-offset-3" style="background-color: black; border-radius: 10px">
 

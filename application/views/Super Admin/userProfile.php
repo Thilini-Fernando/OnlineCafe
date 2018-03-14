@@ -127,17 +127,22 @@
                                 </div>
                                 <p class="description text-center">
                                     <br>
-                                    System Administrator 
+                                    Super Administrator 
+                                    <br>
+                                    Star Bakers - Owner
                                     <br>
                                     .. ServeMe Online Bakers ..
                                 </p>
                             </div>
                             <hr>
                             <div class="text-center">
-                                <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
-                                <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
-                                <button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>
+                                
+                                <a href="https://www.facebook.com" class="btn btn-simple"><i class="fa fa-facebook-square"></i></a>
 
+                                <a href="https://www.twitter.com" class="btn btn-simple">
+                                <i class="fa fa-twitter"></i></a>
+
+                                <a href="https://www.linkedin.com" class="btn btn-simple"><i class="fa fa-linkedin"></i></a>
                             </div>
                         </div>
                     </div>

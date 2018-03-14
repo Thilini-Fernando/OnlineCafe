@@ -57,6 +57,19 @@ class AdminModel extends CI_Model{
 		}
 	}
 
+	public function logSAdmn(){
+		$mstrkey = sha1($this->input->post('mstrk'));
+		$superkey = sha1($this->input->post('sadmnk'));
+
+
+		if ($mstrkey==sha1('19941114') AND $superkey==sha1('1234')) {
+			return true;
+			
+		}else{
+			return FALSE;
+		}
+	}
+
 	public function regAdmin1(){
 		
 
@@ -100,6 +113,7 @@ class AdminModel extends CI_Model{
 			'emp_id' => $emp_det->emp_id,
 			'admin_fname' => $fname,
 			'admin_lname' => $lname,
+			'admin_status'=>'Admin',
 			'email' => $this->input->post('eml', TRUE),		
 			'password' => sha1($this->input->post('pwd', TRUE)),
 			'masterkey' => sha1('19941114')

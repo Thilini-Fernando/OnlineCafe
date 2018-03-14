@@ -11,7 +11,7 @@ class CustomerCont extends CI_Controller{
 			$_SESSION['address'],
 			$_SESSION['contact'],
 			$_SESSION['email'],
-			$_SESSION['loggedIn']
+			$_SESSION['cust_loggedIn']
 		);
 		redirect('HomeCont/viewLogin');
 	}

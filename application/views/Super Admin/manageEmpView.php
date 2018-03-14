@@ -19,7 +19,7 @@
                             </div>
                             <div class="col-lg-4 header" align="center">
                                 <br>
-                                <a class = 'btn btn-info' href="<?php echo base_url('index.php/AdminCont/addEmployee'); ?>">Add Employee</a>
+                                <a class = 'btn btn-info' href="<?php echo base_url('index.php/SuperAdminCont/addEmployee'); ?>">Add Employee</a>
                             </div>
 
                             </div>
@@ -56,17 +56,25 @@
 
                                                         <?php
 
-                                                        if ($pvalue->position == 'Super Admin' OR $pvalue->position == 'System Admin') {?>
+                                                        if ($pvalue->position == 'Super Admin') {?>
 
                                                             Not available for <br> editing or delete
                                                         
                                                         <?php 
 
+                                                        }elseif($pvalue->position == 'System Admin'){
+
+                                                            ?>
+
+                                                            <a href="<?php echo base_url('index.php/SuperAdminCont/deleteEmp/'.$pvalue->emp_id); ?>" class="btn btn-warning">Delete</a>
+
+                                                            
+                                                            <?php
                                                         }else{ 
 
                                                         ?>
-                                                            <a href="<?php echo base_url('index.php/AdminCont/editEmp/'.$pvalue->emp_id); ?>" class="btn btn-info">Edit</a>
-                                                            <a href="<?php echo base_url('index.php/AdminCont/deleteEmp/'.$pvalue->emp_id); ?>" class="btn btn-warning">Delete</a>
+                                                            <a href="<?php echo base_url('index.php/SuperAdminCont/editEmp/'.$pvalue->emp_id); ?>" class="btn btn-info">Edit</a>
+                                                            <a href="<?php echo base_url('index.php/SuperAdminCont/deleteEmp/'.$pvalue->emp_id); ?>" class="btn btn-warning">Delete</a>
 
                                                         <?php
 
