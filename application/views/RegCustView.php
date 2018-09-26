@@ -47,7 +47,7 @@
 				</div >			 
 
 				<div align="right"> 
-					<button type="submit" class="btn btn-success"><b> Submit form </b></button>
+					<button type="submit" class="btn btn-success"><b> Register Now.. </b></button>
 				</div>			
 				
 				<br>
